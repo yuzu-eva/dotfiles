@@ -5,6 +5,13 @@
 # EDITOR='emacsclient -c'
 PATH="/usr/local/lib:$HOME/.cargo/bin:$HOME/.emacs.d/bin${PATH:+:${PATH}}"
 
+# Path for Android Development
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -118,9 +125,6 @@ fi
 
 neofetch 
 
-
-
-
 ##-----------------------------------------------------
 ## synth-shell-prompt.sh
 if [ -f /home/cafebabe/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( echo $- | grep i )" ]; then
@@ -132,6 +136,14 @@ fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION
