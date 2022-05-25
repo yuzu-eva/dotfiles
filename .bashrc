@@ -1,9 +1,12 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#               __       _           _
+#   ___   __ _ / _| ___ | |__   __ _| |__   ___
+#  / __| / _' | |_ / _ \|  _ \ / _' |  _ \ / _ \
+# | |__ / (_| |  _|  __/| |_) / (_| | |_) |  __/
+#  \___|\___._/_|  \___||____/\___._/____/ \___/
+#
 
-# EDITOR='emacsclient -c'
-PATH="/usr/local/lib:$HOME/.cargo/bin:$HOME/.emacs.d/bin${PATH:+:${PATH}}"
+# Add various paths
+export PATH="$PATH:usr/local/lib:$HOME/.cargo/bin"
 
 # Path for Android Development
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -11,6 +14,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export LC_ALL=en_US.UTF-8
 
 # If not running interactively, don't do anything
 case $- in
@@ -37,10 +42,8 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-
 # Enable globbing hidden/dot files (.filename).
 shopt -s dotglob
-
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -58,11 +61,6 @@ fi
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -91,22 +89,15 @@ xterm*|rxvt*)
     ;;
 esac
 
-
 # enable colors
 eval "`dircolors -b ~/.dircolors`"
 
 # colored GCC warnings and errors
 # export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -123,29 +114,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-neofetch 
-
-##-----------------------------------------------------
-## synth-shell-prompt.sh
-if [ -f /home/cafebabe/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/cafebabe/.config/synth-shell/synth-shell-prompt.sh
+## Powerline
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source /usr/share/powerline/bindings/bash/powerline.sh
 fi
-
-
-
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-
-
-
+# fzf configs
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+neofetch
