@@ -2,7 +2,7 @@
 #   ___   __ _ / _| ___ | |__   __ _| |__   ___
 #  / __| / _' | |_ / _ \|  _ \ / _' |  _ \ / _ \
 # | |__ / (_| |  _|  __/| |_) / (_| | |_) |  __/
-#  \___|\___._/_|  \___||____/\___._/____/ \___/
+#  \___|\___._/_|  \___/|____/\___._/____/ \___/
 #
 
 # Add various paths
@@ -131,8 +131,16 @@ export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+
+
+neofetch
+
+
+
+
+alias luamake=/home/cafebabe/Software/lua-language-server/3rd/luamake/luamake
+
+
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
-
-neofetch
