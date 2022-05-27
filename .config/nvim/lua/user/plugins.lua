@@ -12,7 +12,6 @@ require('packer').startup(function()
             require('user.plugins.dracula')
         end
     }
-    
     use {
         'windwp/nvim-autopairs',
         config = function()
@@ -84,4 +83,3 @@ require('packer').startup(function()
         end
     }
 end)
-

@@ -42,7 +42,6 @@ local on_attach = function(_, bufnr)
     --     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     --     vim.api.nvim_command [[augroup END]]
     -- end
-    
 end
 
 
@@ -63,6 +62,41 @@ require'lspconfig'.tsserver.setup{
         debounce_text_changes = 150,
     }
 }
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+require'lspconfig'.sumneko_lua.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = { "/home/cafebabe/repos/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/repos/lua-language-server/bin/main.lua"};
+    settings = {
+        Lua = {
+        runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+            -- Setup your lua path
+            path = runtime_path,
+        },
+        diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+        },
+        workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+            enable = false,
+        },
+        },
+    },
+}
+
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)
     if msg:match 'exit code' then
@@ -74,3 +108,4 @@ vim.notify = function(msg, log_level, _)
         vim.api.nvim_echo({ { msg } }, true, {})
     end
 end
+
