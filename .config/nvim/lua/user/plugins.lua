@@ -1,6 +1,5 @@
 require('packer').startup(function()
     use { 'wbthomason/packer.nvim' } -- Let packer manage itself
-
     use { 'tpope/vim-commentary' }
     use { 'tpope/vim-surround' }
     use { 'tpope/vim-eunuch' }
@@ -57,6 +56,7 @@ require('packer').startup(function()
             'hrsh7th/cmp-buffer',
             'jessarcher/cmp-path',
             'hrsh7th/cmp-nvim-lua',
+            'L3MON4D3/LuaSnip',
             'onsails/lspkind-nvim',
             'hrsh7th/cmp-nvim-lsp-signature-help',
         },
@@ -80,6 +80,12 @@ require('packer').startup(function()
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
             require('user.plugins.lualine')
+        end
+    }
+    use {
+        'L3MON4D3/LuaSnip',
+        config = function()
+            require('user.plugins.luasnip')
         end
     }
 end)

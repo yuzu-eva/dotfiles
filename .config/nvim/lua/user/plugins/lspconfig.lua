@@ -69,6 +69,14 @@ require 'lspconfig'.tsserver.setup {
     }
 }
 
+require 'lspconfig'.html.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    }
+}
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -88,8 +96,8 @@ require 'lspconfig'.sumneko_lua.setup {
                 path = runtime_path,
             },
             diagnostics = {
-                -- Recognize the `vim` und `use` global
-                globals = { 'vim', 'use' },
+                -- Recognize globals
+                globals = { 'vim', 'use', 'parse' },
             },
             workspace = {
                 -- Make server aware of Neovim runtime files
