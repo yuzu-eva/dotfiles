@@ -49,7 +49,7 @@ cmp.setup {
             else
                 fallback()
             end
-        
+
         end, { 'i', 's' }),
     },
     sources = {

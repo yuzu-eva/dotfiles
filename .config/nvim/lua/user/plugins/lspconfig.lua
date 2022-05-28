@@ -36,6 +36,9 @@ local on_attach = function(_, bufnr)
     buf_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
     buf_keymap(bufnr, 'n', '<leader>F', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 
+    -- Autoformat on save doesn't work with server_capabilities, even
+    -- though it's the replacement for the deprecated resolved_capabilities.
+
     -- if _.server_capabilities.document_formatting then
     --     vim.api.nvim_command [[augroup Format]]
     --     vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -44,10 +47,12 @@ local on_attach = function(_, bufnr)
     -- end
 end
 
-
+-- provide additional completion capabilities
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require 'lspconfig'.eslint.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
         debounce_text_changes = 150,
     },
@@ -58,6 +63,7 @@ require 'lspconfig'.eslint.setup {
 
 require 'lspconfig'.tsserver.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
         debounce_text_changes = 150,
     }
@@ -68,6 +74,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 require 'lspconfig'.sumneko_lua.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
         debounce_text_changes = 150,
     },
@@ -75,20 +82,20 @@ require 'lspconfig'.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                -- Tell language server which version of lua is used.
                 version = 'LuaJIT',
-                -- Setup your lua path
+                -- Setup lua path
                 path = runtime_path,
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
+                -- Recognize the `vim` und `use` global
                 globals = { 'vim', 'use' },
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
+                -- Make server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
+            -- Do not send telemetry data
             telemetry = {
                 enable = false,
             },
@@ -98,6 +105,7 @@ require 'lspconfig'.sumneko_lua.setup {
 
 require 'lspconfig'.solargraph.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
         debounce_text_changes = 150,
     },
