@@ -8,11 +8,11 @@ vim.diagnostic.config {
         source = true,
         focus = false,
         format = function(diagnostic)
-        if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
-            return string.format("%s: %s", diagnostic.user_data.lsp.code, diagnostic.message)
-        end
-        return diagnostic.message
-    end,
+            if diagnostic.user_data ~= nil and diagnostic.user_data.lsp.code ~= nil then
+                return string.format("%s: %s", diagnostic.user_data.lsp.code, diagnostic.message)
+            end
+            return diagnostic.message
+        end,
     }
 }
 
@@ -46,7 +46,7 @@ end
 
 
 
-require'lspconfig'.eslint.setup{
+require 'lspconfig'.eslint.setup {
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
@@ -56,7 +56,7 @@ require'lspconfig'.eslint.setup{
     },
 }
 
-require'lspconfig'.tsserver.setup{
+require 'lspconfig'.tsserver.setup {
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
@@ -66,33 +66,46 @@ require'lspconfig'.tsserver.setup{
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-
-require'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.sumneko_lua.setup {
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { "/home/cafebabe/repos/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/repos/lua-language-server/bin/main.lua"};
+    cmd = { "/home/cafebabe/repos/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/repos/lua-language-server/bin/main.lua" };
     settings = {
         Lua = {
-        runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
-            -- Setup your lua path
-            path = runtime_path,
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim', 'use' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
         },
-        diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
-        },
-        workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-            enable = false,
-        },
+    },
+}
+
+require 'lspconfig'.solargraph.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = { "solargraph", "stdio" },
+    filetypes = { "ruby" },
+    settings = {
+        solargraph = {
+            diagnostics = true,
         },
     },
 }
@@ -102,10 +115,9 @@ vim.notify = function(msg, log_level, _)
     if msg:match 'exit code' then
         return
     end
-        if log_level == vim.log.levels.ERROR then
+    if log_level == vim.log.levels.ERROR then
         vim.api.nvim_err_writeln(msg)
     else
         vim.api.nvim_echo({ { msg } }, true, {})
     end
 end
-
