@@ -1,7 +1,8 @@
 require('nvim-treesitter.configs').setup {
-    -- indent = {
-        -- enable = true,
-    -- },
+    indent = {
+        enable = true,
+        disable = { 'html' },
+    },
     highlight = {
         enable = true,
         disable = { 'NvimTree' },
