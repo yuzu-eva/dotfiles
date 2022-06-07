@@ -1,4 +1,4 @@
-% Dotfiles Repository %
+# Dotfiles Repository #
 
 # lspconfig dependencies
 
