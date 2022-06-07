@@ -103,7 +103,7 @@ alias listinst='apt list --installed'
 
 alias ytmp3='yt-dlp -x --audio-format mp3 -o "/media/Becoming a Philosopher/Music/Youtube Downloads/%(title)s.%(ext)s"'
 alias ytvid='yt-dlp -o "/media/Becoming a Philosopher/Videos/Archives/Output/%(title)s.%(ext)s"'
-alias ytarchive='yt-dlp --write-description --write-info-json --write-thumbnail --write-sub -o "/media/Becoming a Philosopher/Videos/Archives/%(uploader)s/%(title)s/%(title)s.%(ext)s"'
+alias ytarchive='yt-dlp --write-description --write-info-json --write-thumbnail --write-sub -o "/media/Becoming a Philosopher/Videos/Archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s"'
 
 ###########
 # Network #
