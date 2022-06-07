@@ -1,0 +1,64 @@
+/**-----------------------------------------------------------------------
+
+* ROFI color theme
+* NAME: cafebabe-dmenu.rasi
+* DESCRIPTION: Horizontal prompt similar to dmenu, based on Adapta-Nokto
+* AUTHOR: cafebabe
+
+*-------------------------------------------------------------------------
+*/
+
+* {
+    background-color:            rgba ( 0, 0, 0, 100 % );
+    border-color:                rgba ( 250, 251, 252, 100 % );
+    text-color:                  rgba ( 187, 194, 207, 100 % );
+    height:                      20px;
+    font:                        "Ubuntu Mono Regular 11";
+    prompt-font:                 "Ubuntu Mono Bold 11";
+    prompt-background:           rgba ( 171, 54, 255, 100 % );
+    prompt-foreground:           rgba ( 40, 44, 52, 100 % );
+    prompt-padding:              4px;
+    selected-normal-background:  rgba ( 171, 54, 255, 100 % );
+    selected-normal-foreground:  rgba ( 250, 251, 252, 100 % );
+}
+
+#window {
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 0px;
+    children: [ horibox ];
+}
+
+#horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+}
+
+#prompt {
+    padding:          @prompt-padding;
+    background-color: @prompt-background;
+    text-color:       @prompt-foreground;
+    font:             @prompt-font;
+}
+
+#listview {
+    layout: horizontal;
+    lines:  100;
+}
+
+#entry {
+    padding: 2px;
+    expand:  false;
+    width:   10em;
+}
+
+#element {
+    padding: 2px 8px;
+}
+
+#element selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
