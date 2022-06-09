@@ -49,6 +49,9 @@ extract() {
         *.zip) unzip $1 ;;
         *.Z) uncompress $1 ;;
         *.7z) 7z x $1 ;;
+        *.deb) ar x $1 ;;
+        *.tar.xz) tar xf $1 ;;
+        *.tar.zst) unzstd $1 ;;
         *) echo "'$1' cannot be extracted via extract()" ;;
         esac
     else
@@ -85,17 +88,26 @@ alias ls='exa -lah --color=always --group-directories-first'
 # git #
 #######
 
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias stat='git status'
+
+# Shortcut for dotfiles repo
 alias dfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 ###################
 # Package Manager #
 ###################
 
-alias aptinstall='sudo apt-get install'
-alias aptupdate='sudo apt-get update'
-alias aptupgrade='sudo apt-get upgrade'
-alias listupgrade='apt list --upgradeable'
-alias listinst='apt list --installed'
+alias aptin='sudo apt install'
+alias aptup='sudo apt update && sudo apt upgrade'
+alias aptupd='sudo apt update'
+alias aptupg='sudo apt upgrade'
+alias aptrm='sudo apt remove'
+alias listup='apt list --upgradeable'
+alias listin='apt list --installed'
 
 ##########
 # yt-dlp #
