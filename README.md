@@ -1,17 +1,25 @@
-# Dotfiles Repository #
+# Dotfiles Repository
 
-# lspconfig dependencies
-
-## npm installs
-
-vscode-langservers-extracted
-typescript
-typescript-language-server
-
-# npm version
+## lspconfig requirements
 
 main setup uses npm 8.10.0 and nodejs 16.13.1
 
-# TO-DO
+`npm i -g vscode-langservers-extracted typescript typescript-language-server`
 
-solargraph install
+`gem install solargraph`
+
+## Treesitter
+
+Remember to TSInstall the languages. Currently using:
+
+* bash
+* c
+* html
+* javascript
+* json
+* lua
+* python
+* ruby
+* tsx
+* typescript
+* vim
