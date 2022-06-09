@@ -1,5 +1,7 @@
 # Dotfiles Repository
 
+My personal dotfiles repository.
+
 ## lspconfig requirements
 
 works on npm 8.10.0 and nodejs 16.13.1
@@ -29,3 +31,13 @@ Remember to TSInstall the languages. Currently using:
 * tsx
 * typescript
 * vim
+
+## Powerline
+
+.bashrc expects local installation:
+
+```bash
+pip3 install --user powerline-status
+pip3 install --user powerline-gitstatus
+
+```
