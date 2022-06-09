@@ -4,13 +4,16 @@
 
 works on npm 8.10.0 and nodejs 16.13.1
 
-`npm i -g vscode-langservers-extracted`
+```bash
+npm i -g vscode-langservers-extracted
 
-`npm i -g typescript typescript-language-server`
+npm i -g typescript typescript-language-server
 
-`npm i -g bash-language-server`
+npm i -g bash-language-server
 
-`gem install solargraph`
+gem install solargraph
+
+```
 
 ## Treesitter
 
