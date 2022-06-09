@@ -126,6 +126,14 @@ require 'lspconfig'.solargraph.setup {
     },
 }
 
+require 'lspconfig'.bashls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    },
+}
+
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)
     if msg:match 'exit code' then
