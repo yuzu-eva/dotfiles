@@ -4,12 +4,13 @@ My personal dotfiles repository.
 
 ## lspconfig requirements
 
-works on npm 8.10.0 and nodejs 16.13.1
+works on npm 8.10.0 + nodejs 16.13.1 and later
 
 ```bash
 npm i -g vscode-langservers-extracted
 npm i -g typescript typescript-language-server
 npm i -g bash-language-server
+npm i -g emmet-ls
 pip3 install jedi
 pip3 install python-lsp-server[all]
 gem install solargraph
