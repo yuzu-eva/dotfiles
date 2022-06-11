@@ -90,7 +90,7 @@ xterm*|rxvt*)
 esac
 
 # enable colors
-if  [-f ~/.dircolors ]; then
+if  [ -f ~/.dircolors ]; then
     eval "`dircolors -b ~/.dircolors`"
 fi
 
