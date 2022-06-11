@@ -42,3 +42,7 @@ pip3 install --user powerline-status
 pip3 install --user powerline-gitstatus
 
 ```
+
+## Kitty
+
+Using Hack Nerd Font
