@@ -130,4 +130,5 @@ alias flush-dns='sudo /etc/init.d/dns-clean start'
 
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias kndds='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Pantsu\ Soft/Kokoro\ no\ Doki\ Doki\ Senpai/lib/windows-i686/Kokoro.exe'
+alias ds2='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Dungeon\ Siege\ II/DS2BWAllSaves.exe'
 alias vi='nvim'
