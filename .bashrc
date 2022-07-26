@@ -3,19 +3,16 @@
 #  / __| / _' | |_ / _ \|  _ \ / _' |  _ \ / _ \
 # | |__ / (_| |  _|  __/| |_) / (_| | |_) |  __/
 #  \___|\___._/_|  \___/|____/\___._/____/ \___/
-#
 
-# Add various paths
-export PATH="$PATH:usr/local/lib:$HOME/.cargo/bin"
+umask 77
 
-# Path for Android Development
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export TERM=xterm-kitty
 
 export LC_ALL=en_US.UTF-8
+
+if [ -f "/etc/profile.d/rvm.sh" ]; then
+    source /etc/profile.d/rvm.sh
+fi
 
 # If not running interactively, don't do anything
 case $- in
