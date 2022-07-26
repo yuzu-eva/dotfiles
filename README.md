@@ -32,6 +32,7 @@ Remember to TSInstall the languages. Currently using:
 * tsx
 * typescript
 * vim
+* markdown
 
 ## Powerline
 
