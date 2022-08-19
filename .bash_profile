@@ -1,5 +1,5 @@
 # Add various paths
-export PATH="$PATH:usr/local/lib:$HOME/.cargo/bin:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/lib:$HOME/.cargo/bin:$HOME/.local/bin"
 
 # Path for Android Development
 export ANDROID_HOME=$HOME/Android/Sdk

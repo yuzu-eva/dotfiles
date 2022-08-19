@@ -95,7 +95,7 @@ require 'lspconfig'.sumneko_lua.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { "/home/cafebabe/repos/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/repos/lua-language-server/bin/main.lua" };
+    cmd = { "/home/cafebabe/.local/src/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/.local/src/lua-language-server/bin/main.lua" };
     settings = {
         Lua = {
             runtime = {
@@ -127,7 +127,7 @@ require 'lspconfig'.solargraph.setup {
         debounce_text_changes = 150,
     },
     cmd = { "solargraph", "stdio" },
-    filetypes = { "ruby" },
+    filetypes = { 'ruby' },
     settings = {
         solargraph = {
             diagnostics = true,
