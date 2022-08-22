@@ -2,9 +2,11 @@
 
 My personal dotfiles repository.
 
-## lspconfig requirements
+## nvim
 
-works on npm 8.10.0 + nodejs 16.13.1 and later
+### lspconfig requirements
+
+works on npm 8.10.0 + nodejs 16.13.1 and later.
 
 ```bash
 npm i -g vscode-langservers-extracted
@@ -17,33 +19,40 @@ gem install solargraph
 
 ```
 
-## Treesitter
+### Treesitter
 
 Remember to TSInstall the languages. Currently using:
 
-* bash
-* c
-* html
-* javascript
-* json
-* lua
-* python
-* ruby
-* tsx
-* typescript
-* vim
-* markdown
-
-## Powerline
-
-.bashrc expects local installation:
-
-```bash
-pip3 install --user powerline-status
-pip3 install --user powerline-gitstatus
-
-```
++ bash
++ c
++ html
++ javascript
++ json
++ lua
++ python
++ ruby
++ tsx
++ typescript
++ vim
++ markdown
 
 ## Kitty
 
-Using Hack Nerd Font
+Using Hack Nerd Font.
+
+Custom prompt is Starship.
+
+## Window Manager
+
+Using dwm with following patches:
+
++ swallow
++ fibonacci
++ focusonclick
++ statusallmons
+
+Config for dwm is in another repo.
+
+## File Manager
+
+Using nnn with preview-tui plugin.

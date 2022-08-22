@@ -10,6 +10,8 @@ export TERM=xterm-kitty
 
 export LC_ALL=en_US.UTF-8
 
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
 if [ -f "/etc/profile.d/rvm.sh" ]; then
     source /etc/profile.d/rvm.sh
 fi
@@ -54,10 +56,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
+# # set a fancy prompt (non-color, unless we know we "want" color)
+# case "$TERM" in
+#     xterm-color|*-256color) color_prompt=yes;;
+# esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -77,14 +79,14 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# # If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
 
 # enable colors
 if  [ -f ~/.dircolors ]; then
@@ -113,39 +115,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## Powerline
-if [ -f "$HOME/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh" ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    source "$HOME/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh"
-fi
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # fzf configs
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-
+# NNN
+[ -f ~/.config/nnn/nnn.bash ] && source ~/.config/nnn/nnn.bash
 
 neofetch
 
+export NVM_DIR=$HOME/.nvm
 
-
-
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/environments/ruby-3.1.2" ]] && source "$HOME/.rvm/environments/ruby-3.1.2"
 
@@ -153,3 +140,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+eval "$(starship init bash)"
