@@ -4,9 +4,7 @@
 # | |__ / (_| |  _|  __/| |_) / (_| | |_) |  __/
 #  \___|\___._/_|  \___/|____/\___._/____/ \___/
 
-umask 77
-
-export TERM=xterm-kitty
+export TERM=xterm
 
 export LC_ALL=en_US.UTF-8
 
