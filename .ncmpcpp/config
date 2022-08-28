@@ -3,7 +3,7 @@ ncmpcpp_directory = /home/cafebabe/.ncmpcpp
 lyrics_directory = /home/cafebabe/.ncmpcpp/lyrics
 mpd_host = localhost
 mpd_port = 6600
-mpd_music_dir = /media/Becoming\ a\ Philosopher/Music
+mpd_music_dir = /media/HDD/Music
 mpd_connection_timeout = 5
 
 # Playlist

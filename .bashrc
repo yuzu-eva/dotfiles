@@ -44,10 +44,6 @@ shopt -s checkwinsize
 # Enable globbing hidden/dot files (.filename).
 shopt -s dotglob
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -56,10 +52,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# # set a fancy prompt (non-color, unless we know we "want" color)
-# case "$TERM" in
-#     xterm-color|*-256color) color_prompt=yes;;
-# esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -79,25 +71,13 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# # If this is an xterm set the title to user@host:dir
-# case "$TERM" in
-# xterm*|rxvt*)
-#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#     ;;
-# *)
-#     ;;
-# esac
 
 # enable colors
 if  [ -f ~/.dircolors ]; then
     eval "`dircolors -b ~/.dircolors`"
 fi
 
-# colored GCC warnings and errors
-# export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 if [ -f ~/.bash_aliases ]; then
