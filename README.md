@@ -2,6 +2,9 @@
 
 My personal dotfiles repository.
 
+Should maybe write an installation script so replicating my setup is less
+annoying.
+
 ## nvim
 
 ### lspconfig requirements
@@ -50,6 +53,7 @@ Using dwm with following patches:
 + fibonacci
 + focusonclick
 + statusallmons
++ vanitygaps
 
 Config for dwm is in another repo.
 
