@@ -5,7 +5,6 @@ do
     case "$1" in
         "C-d") trash-put "$file" ;;
         "C-c") cat "$file" | xclip -sel c -t image/png ;;
-        "C-r") mv "$file" ../rage ;;
-        "C-w") xwallpaper --zoom "$file" ;;
+        "C-w") xwallpaper --maximize "$file" ;;
     esac
 done
