@@ -151,6 +151,14 @@ require 'lspconfig'.pylsp.setup {
     },
 }
 
+require 'lspconfig'.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    },
+}
+
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)
