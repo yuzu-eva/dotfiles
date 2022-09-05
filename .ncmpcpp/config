@@ -8,7 +8,7 @@ mpd_connection_timeout = 5
 
 # Playlist
 playlist_disable_highlight_delay = 0
-playlist_display_mode = columns
+playlist_display_mode = classic
 playlist_show_remaining_time = yes
 
 browser_display_mode = columns
