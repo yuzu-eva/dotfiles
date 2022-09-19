@@ -1,9 +1,7 @@
 # Dotfiles Repository
 
-My personal dotfiles repository.
-
-Listed commands work with debian based distros.
-
+My personal dotfiles repository.  
+Listed commands work with debian based distros.  
 Should maybe write an installation script so replicating my setup is less
 annoying.
 
@@ -24,10 +22,8 @@ My lspconfig uses language servers for:
 - Python
 - Ruby
 
-The following command block can be copy-pasted into a bash terminal.
-
-It will install all requirements needed for the lspconfig to work.
-
+The following command block can be copy-pasted into a bash terminal.  
+It will install all requirements needed for the lspconfig to work.  
 May need super user privilege.
 
 Requires npm, pip3, ruby and git.
