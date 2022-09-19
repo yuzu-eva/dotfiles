@@ -18,9 +18,9 @@ My lspconfig uses language servers for:
 - Bash
 - css
 - html
+- JavaScript / TypeScript
 - LISP
 - Lua
-- JavaScript / TypeScript
 - Python
 - Ruby
 
