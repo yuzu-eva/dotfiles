@@ -14,10 +14,6 @@ keymap('n', '<c-j>', '<c-w>j')
 keymap('n', '<c-k>', '<c-w>k')
 keymap('n', '<c-l>', '<c-w>l')
 
--- Insert trailing ; or , from insert mode
-keymap('i', ';;', '<Esc>A;<Esc>')
-keymap('i', ',,', '<Esc>A,<Esc>')
-
 -- Open the current file in the default program
 keymap('n', '<leader>x', ':!xdg-open %<CR><CR>')
 
