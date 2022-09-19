@@ -14,10 +14,10 @@ works on npm 8.10.0 + nodejs 16.13.1 and later.
 My lspconfig uses language servers for:
 
 - Bash
+- C
 - css
 - html
 - JavaScript / TypeScript
-- LISP
 - Lua
 - Python
 - Ruby
