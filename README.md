@@ -1,6 +1,7 @@
 # Dotfiles Repository
 
 My personal dotfiles repository.
+
 Listed commands work with debian based distros.
 
 Should maybe write an installation script so replicating my setup is less
@@ -12,8 +13,21 @@ annoying.
 
 works on npm 8.10.0 + nodejs 16.13.1 and later.
 
+My lspconfig uses language servers for:
+
+- Bash
+- css
+- html
+- LISP
+- Lua
+- JavaScript / TypeScript
+- Python
+- Ruby
+
 The following command block can be copy-pasted into a bash terminal.
+
 It will install all requirements needed for the lspconfig to work.
+
 May need super user privilege.
 
 Requires npm, pip3, ruby and git.
