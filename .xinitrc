@@ -7,8 +7,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-if [ -f /home/cafebabe/.scripts/statusbar.sh ]; then
-  . /home/cafebabe/.scripts/statusbar.sh
+if [ -f /home/cafebabe/.local/bin/statusbar ]; then
+  . /home/cafebabe/.local/bin/statusbar
 fi
 
 export GTK_IM_MODULE='ibus'
