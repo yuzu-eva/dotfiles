@@ -7,6 +7,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Add various paths
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.rvm/bin"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 

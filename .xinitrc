@@ -23,9 +23,11 @@ rfkill block all
 ibus-daemon -dxrR
 
 xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
-xrandr --auto --output DisplayPort-2 --mode 1600x900 --right-of HDMI-A-0
+xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 
-xwallpaper --maximize "$(/usr/bin/ls -d -1 /media/HDD/Pictures/Wallpaper/* | shuf -n1)" &
+xset s off -dpms
+
+xwallpaper --maximize "$(/usr/bin/ls -d -1 /media/HDD/Pictures/wallpaper/* | shuf -n1)" &
 
 compton --config /home/cafebabe/.config/compton/compton.conf -b
 
