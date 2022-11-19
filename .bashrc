@@ -4,8 +4,6 @@
 # | |__ / (_| |  _|  __/| |_) / (_| | |_) |  __/
 #  \___|\___._/_|  \___/|____/\___._/____/ \___/
 
-export TERM=xterm
-
 export LC_ALL=en_US.UTF-8
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
