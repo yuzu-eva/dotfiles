@@ -53,17 +53,15 @@ Custom prompt is Starship.
 
 ## st
 
-Recently switched to st again.
-
-Using font2 patch and libXft.so.2.3.7 to display colored glyphs.
+My build of [st](https://github.com/yuzu-eva/my-personal-st).
 
 ## dmenu
 
-Using dmenu with some keybinds for bookmarks.
+My build of [dmenu](https://github/yuzu-eva/my-personal-dmenu).
 
 ## Window Manager
 
-I am using dwm with my [personal config](https://github.com/yuzu-eva/my-personal-dwm).
+My build of [dwm](https://github.com/yuzu-eva/my-personal-dwm).
 
 ## File Manager
 
