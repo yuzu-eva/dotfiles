@@ -1,9 +1,7 @@
 # Dotfiles Repository
 
 My personal dotfiles repository.  
-Listed commands work with debian based distros.  
-Should maybe write an installation script so replicating my setup is less
-annoying.
+Listed commands work with ubuntu / debian based distros.  
 
 ## nvim
 
@@ -53,6 +51,16 @@ Using Hack Nerd Font.
 
 Custom prompt is Starship.
 
+## st
+
+Recently switched to st again.
+
+Using font2 patch and libXft.so.2.3.7 to display colored glyphs.
+
+## dmenu
+
+Using dmenu with some keybinds for bookmarks.
+
 ## Window Manager
 
 I am using dwm with my [personal config](https://github.com/yuzu-eva/my-personal-dwm).
@@ -60,5 +68,3 @@ I am using dwm with my [personal config](https://github.com/yuzu-eva/my-personal
 ## File Manager
 
 Using nnn with preview-tui plugin.
-
-Rarely use it, may uninstall.
