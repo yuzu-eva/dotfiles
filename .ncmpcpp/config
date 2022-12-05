@@ -14,6 +14,7 @@ playlist_show_remaining_time = yes
 browser_display_mode = columns
 autocenter_mode = yes
 follow_now_playing_lyrics = yes
+lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, genius, internet
 
 # UI and colors
 colors_enabled = yes
@@ -38,9 +39,8 @@ display_bitrate = yes
 enable_window_title = yes
 
 # Visualizer
-visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = Visualizer feed
 visualizer_in_stereo = yes
-visualizer_sync_interval = 30
 visualizer_type = spectrum
 visualizer_look = +|

@@ -7,7 +7,7 @@
 export LC_ALL=en_US.UTF-8
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-export MAIL=/home/cafebabe/Maildir
+export MAIL=/home/cafebabe/.mutt/Maildir
 
 if [ -f "/etc/profile.d/rvm.sh" ]; then
     source /etc/profile.d/rvm.sh
