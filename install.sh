@@ -22,8 +22,6 @@ apt upgrade -y
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.local/src
 
-apt install git -y
-
 # install building stuff
 apt install build-essential libtool pkg-config -y
 
