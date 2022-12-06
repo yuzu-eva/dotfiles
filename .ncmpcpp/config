@@ -1,6 +1,6 @@
 # Files
-ncmpcpp_directory = $HOME/.ncmpcpp
-lyrics_directory = $HOME/.ncmpcpp/lyrics
+ncmpcpp_directory = ~/.ncmpcpp
+lyrics_directory = ~/.ncmpcpp/lyrics
 
 mpd_host = localhost
 mpd_port = 6600
