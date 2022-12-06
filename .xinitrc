@@ -7,8 +7,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-if [ -f /home/cafebabe/.local/bin/statusbar ]; then
-  . /home/cafebabe/.local/bin/statusbar
+if [ -f $HOME/.local/bin/statusbar ]; then
+  . $HOME/.local/bin/statusbar
 fi
 
 export GTK_IM_MODULE='ibus'
@@ -31,9 +31,9 @@ xset s off -dpms
 
 setxkbmap -option "ctrl:nocaps"
 
-xwallpaper --maximize "$(/usr/bin/ls -d -1 /media/HDD/Pictures/wallpaper/* | shuf -n1)" &
+xwallpaper --maximize "$(/usr/bin/ls -d -1 /hdd/Pictures/wallpaper/* | shuf -n1)" &
 
-compton --config /home/cafebabe/.config/compton/compton.conf -b
+compton --config $HOME/.config/compton/compton.conf -b
 
 exec dwm
 
