@@ -5,6 +5,8 @@ Listed commands work with ubuntu / debian based distros.
 
 ## nvim
 
+Not using this anymore. Still keeping it here, just in case.
+
 ### lspconfig requirements
 
 works on npm 8.10.0 + nodejs 16.13.1 and later.
@@ -47,6 +49,8 @@ Remember to TSInstall *
 
 ## Kitty
 
+Not using kitty anymore. Still keeping it here.
+
 Using Hack Nerd Font.
 
 Custom prompt is Starship.
@@ -65,4 +69,6 @@ My build of [dwm](https://github.com/yuzu-eva/my-personal-dwm).
 
 ## File Manager
 
-Using nnn with preview-tui plugin.
+Using this very rarely, mainly just for comfy renaming of files.
+
+Using nnn with preview-tabbed plugin.
