@@ -70,7 +70,7 @@ record() {
         -filter_complex amix=inputs=2 \
         -vcodec libx265 -s 1920x1080 \
         -acodec libvorbis -ab 128k \
-        $HOME/vids/$1.mkv
+        $(xdg-user-dir VIDEOS)/$1.mkv
 }
 
 #######
@@ -127,5 +127,4 @@ alias flush-dns='sudo /etc/init.d/dns-clean start'
 #############
 
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias vi='nvim'
 alias emacs='emacsclient -c -a "emacs"'
