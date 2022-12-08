@@ -85,7 +85,7 @@ alias pull='git pull origin'
 alias push='git push origin'
 
 # Shortcut for dotfiles repo
-alias dfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 ###################
 # Package Manager #
