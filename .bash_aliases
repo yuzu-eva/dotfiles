@@ -30,7 +30,7 @@ alias setrmon-midres='xrandr --auto --output DisplayPort-2 --mode 800x600 --left
 alias setrmon-default='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
 
 # Set Neofetch ASCII
-alias neofetch='neofetch --source ~/Documents/ascii-art/lain-ascii.txt'
+alias neofetch='neofetch --source ~/docs/ascii-art/lain-ascii.txt'
 alias cn='clear;neofetch'
 
 # Colorize grep output

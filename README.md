@@ -47,14 +47,6 @@ cd -
 
 Remember to TSInstall *
 
-## Kitty
-
-Not using kitty anymore. Still keeping it here.
-
-Using Hack Nerd Font.
-
-Custom prompt is Starship.
-
 ## st
 
 My build of [st](https://github.com/yuzu-eva/my-personal-st).
