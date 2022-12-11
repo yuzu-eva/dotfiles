@@ -3,7 +3,6 @@
 
 (custom-theme-set-faces
  'dracula-custom
- '(default ((t (:family "Hack Nerd Font" :foundry "SRC" :width normal :height 113 :weight normal :slant normal :underline nil :overline nil :extend nil :strike-through nil :box nil :inverse-video nil :foreground "#F8F8F2" :background "#262626" :stipple nil :inherit nil))))
  '(cursor ((t (:background "#ccccc7"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((((type w32)) (:foundry "outline" :family "Arial")) (t (:family "Sans Serif"))))
@@ -47,6 +46,7 @@
  '(lazy-highlight ((t (:foreground "#e2e2dc" :background "#373844"))))
  '(match ((t (:foreground "#282a36" :background "#f1fa8c"))))
  '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch))))))
+ '(query-replace ((t (:inherit (isearch)))))
+ '(default ((t (:family "Hack Nerd Font" :foundry "SRC" :width normal :height 113 :weight normal :slant normal :underline nil :overline nil :extend nil :strike-through nil :box nil :inverse-video nil :foreground "#F8F8F2" :background "#262626" :stipple nil :inherit nil)))))
 
 (provide-theme 'dracula-custom)

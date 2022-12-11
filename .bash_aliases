@@ -9,11 +9,13 @@
 # Miscellaneous # 
 #################
 
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 alias refresh='source ~/.bashrc'
 alias fuck='sudo $(history -p !!)'
 alias open='xdg-open'
 alias rsync='rsync -avh --progress'
-alias cwp='xwallpaper --maximize "$(/usr/bin/ls -1 -d /hdd/Pictures/wallpaper/* | shuf -n1)"'
+alias cwp='xwallpaper --maximize "$(/usr/bin/ls -1 -d /hdd/pics/wallpaper/* | shuf -n1)"'
 alias fd='fdfind'
 
 # Control Audio
@@ -29,9 +31,7 @@ alias setrmon-lowres='xrandr --auto --output DisplayPort-2 --mode 640x480 --left
 alias setrmon-midres='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
 alias setrmon-default='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
 
-# Set Neofetch ASCII
-alias neofetch='neofetch --source ~/docs/ascii-art/lain-ascii.txt'
-alias cn='clear;neofetch'
+alias cn='clear;macchina'
 
 # Colorize grep output
 alias grep='grep --color=auto -i'
@@ -70,7 +70,7 @@ record() {
         -filter_complex amix=inputs=2 \
         -vcodec libx265 -s 1920x1080 \
         -acodec libvorbis -ab 128k \
-        $(xdg-user-dir VIDEOS)/$1.mkv
+        ~/vids/$1.mkv
 }
 
 #######
@@ -104,16 +104,14 @@ alias listin='apt list --installed'
 # yt-dlp #
 ##########
 
-alias ytvid='yt-dlp -o "/hdd/Videos/Archives/random/%(title)s.%(ext)s" --remux-video "mkv"'
-alias ytarchive='yt-dlp --write-description --write-info-json --write-thumbnail --write-sub \
-    -o "/hdd/Videos/Archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s" --remux-video "mkv"'
+alias ytvid='yt-dlp -o "/hdd/vids/random/%(title)s.%(ext)s" --remux-video "mkv"'
+alias ytarchive='yt-dlp -o "/hdd/vids/archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s" --remux-video "mkv"'
 
 # Function to specify filename, so I can avoid total chaos in my library
 ytmp3() {
     read -p "Enter filename: " name;
-    read -p "Enter link: " link;
-    yt-dlp -x --audio-format mp3 --download-archive "/hdd/Music/Archive_goodMusic.txt" \
-        --embed-metadata -o "/hdd/Music/Youtube Downloads/$name.%(ext)s" $link
+    yt-dlp -x --audio-format mp3 --download-archive "/hdd/music/Archive_goodMusic.txt" \
+        --embed-metadata -o "/hdd/music/Youtube Downloads/$name.%(ext)s" $1
 }
 
 ###########
@@ -127,4 +125,4 @@ alias flush-dns='sudo /etc/init.d/dns-clean start'
 #############
 
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias emacs='emacsclient -c -a "emacs"'
+alias emacs='emacsclient -c --socket-name=/tmp/emacs1000/server'

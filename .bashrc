@@ -100,7 +100,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # NNN
 [ -f ~/.config/nnn/nnn.bash ] && source ~/.config/nnn/nnn.bash
 
-neofetch
+macchina
 
 export NVM_DIR=$HOME/.nvm
 

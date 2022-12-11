@@ -11,18 +11,15 @@ if [ -f $HOME/.local/bin/statusbar ]; then
   . $HOME/.local/bin/statusbar
 fi
 
-export GTK_IM_MODULE='ibus'
-export QT_IM_MODULE='ibus'
-export XMODIFIERS='@im=ibus'
+# exec ck-launch-session dbus-launch --exit-with-session /usr/local/bin/dwm
 
-dbus-update-activation-environment \
-    --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
-
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+# export GTK_IM_MODULE='ibus'
+# export QT_IM_MODULE='ibus'
+# export XMODIFIERS='@im=ibus'
 
 rfkill block all
 
-ibus-daemon -dxrR
+# ibus-daemon -dxrR
 
 xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
 xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
@@ -31,9 +28,9 @@ xset s off -dpms
 
 setxkbmap -option "ctrl:nocaps"
 
-xwallpaper --maximize "$(/usr/bin/ls -d -1 /hdd/Pictures/wallpaper/* | shuf -n1)" &
+xwallpaper --maximize "$(/usr/bin/ls -d -1 /hdd/pics/wallpaper/* | shuf -n1)" &
 
-compton --config $HOME/.config/compton/compton.conf -b
+picom --config $HOME/.config/picom/picom.conf -b
 
 exec dwm
 
