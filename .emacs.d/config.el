@@ -36,6 +36,8 @@
 (setq ring-bell-function 'ignore)
 (setq history-length 25)
 (setq global-auto-revert-non-file-buffers t)
+(setq native-comp-async-report-warnings-errors 'silent)
+(setq warning-minimum-level :error)
 
 (setq-default tab-width 4)
 (setq-default standard-indent 4)

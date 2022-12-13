@@ -13,7 +13,7 @@
   :config
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook
-            '(lambda ()
+            (lambda ()
                (visual-line-mode 1))))
 
 (use-package org-indent

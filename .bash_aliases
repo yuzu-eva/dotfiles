@@ -19,8 +19,8 @@ alias cwp='xwallpaper --maximize "$(/usr/bin/ls -1 -d /hdd/pics/wallpaper/* | sh
 alias fd='fdfind'
 
 # Control Audio
-alias headset='pactl set-default-sink alsa_output.pci-0000_29_00.0.analog-stereo'
-alias speakers='pactl set-default-sink alsa_output.pci-0000_31_00.4.analog-stereo'
+alias headset="wpctl set-default $(wpctl status | grep 'Headphones' | cut -b11-12)"
+alias speakers="wpctl set-default $(wpctl status | grep 'Speakers' | cut -b11-12)"
 alias setvol='pactl set-sink-volume @DEFAULT_SINK@'
 
 # Monitor / Resolution settings, mainly for playing old-ass games
@@ -37,6 +37,7 @@ alias cn='clear;macchina'
 alias grep='grep --color=auto -i'
 
 alias ls='ls -hl --color=always --group-directories-first'
+alias la='ls -a'
 
 alias nnn='nnn -Hde'
 
@@ -70,7 +71,7 @@ record() {
         -filter_complex amix=inputs=2 \
         -vcodec libx265 -s 1920x1080 \
         -acodec libvorbis -ab 128k \
-        ~/vids/$1.mkv
+        ~/vids/"$1".mkv
 }
 
 #######
@@ -125,4 +126,4 @@ alias flush-dns='sudo /etc/init.d/dns-clean start'
 #############
 
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias emacs='emacsclient -c --socket-name=/tmp/emacs1000/server'
+alias emacs='emacsclient -c -a "emacs"'
