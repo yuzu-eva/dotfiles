@@ -3,7 +3,7 @@
 while read file
 do
     case "$1" in
-        "C-d") trash-put "$file" ;;
+        "C-d") rm "$file" ;;
         "C-c") cat "$file" | xclip -sel c -t image/png ;;
         "C-w") xwallpaper --maximize "$file" ;;
     esac

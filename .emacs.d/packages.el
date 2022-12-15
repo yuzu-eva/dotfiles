@@ -328,3 +328,8 @@
               (meghanada-mode t)))
   (setq meghanada-java-path "java")
   (setq meghanada-maven-path "mvn"))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))

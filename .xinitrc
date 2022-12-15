@@ -11,6 +11,14 @@ if [ -f $HOME/.local/bin/statusbar ]; then
   . $HOME/.local/bin/statusbar
 fi
 
+envfile="$HOME/.gnupg/gpg-agent.env"
+if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "$envfile")"
+else
+    eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "$envfile")"
+fi
+export GPG_AGENT_INFO
+
 rfkill block all
 xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
@@ -28,6 +36,7 @@ xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 
 dbus-launch --sh-syntax --exit-with-session
 
+eval $(ssh-agent)
 pipewire &
 mpd &
 /usr/local/bin/emacs --daemon &
