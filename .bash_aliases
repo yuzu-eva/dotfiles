@@ -19,6 +19,7 @@ alias fd='fdfind'
 alias mutt='pushd ~/.mutt/attachments; mutt; popd'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias emacs='emacsclient -c -a "emacs"'
+alias emacsd='/usr/local/bin/emacs --daemon'
 alias cn='clear;macchina'
 
 # cp mv and rm always verbose

@@ -2,6 +2,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'emacs-startup-hook 'startup/revert-file-name-handler-alist)
 (add-hook 'emacs-startup-hook 'startup/reset-gc)
+
 ;; Mutt support
 (add-to-list 'auto-mode-alist '("/tmp/mutt.*" . mail-mode))
 

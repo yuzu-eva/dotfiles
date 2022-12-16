@@ -7,17 +7,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-if [ -f $HOME/.local/bin/statusbar ]; then
-  . $HOME/.local/bin/statusbar
-fi
+[ -f $HOME/.local/bin/statusbar ] && . $HOME/.local/bin/statusbar
 
-envfile="$HOME/.gnupg/gpg-agent.env"
-if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
-    eval "$(cat "$envfile")"
-else
-    eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "$envfile")"
-fi
-export GPG_AGENT_INFO
+eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "$envfile")"
 
 rfkill block all
 xset s off -dpms
@@ -32,7 +24,6 @@ export XDG_SESSION_TYPE='x11'
 
 xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
 xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
-
 
 dbus-launch --sh-syntax --exit-with-session
 
