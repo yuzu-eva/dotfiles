@@ -15,12 +15,10 @@ rfkill block all
 xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
 
-# export GTK_IM_MODULE='ibus'
-# export QT_IM_MODULE='ibus'
-# export XMODIFIERS='@im=ibus'
+export GTK_IM_MODULE='ibus'
+export QT_IM_MODULE='ibus'
+export XMODIFIERS='@im=ibus'
 export XDG_SESSION_TYPE='x11'
-
-# ibus-daemon -dxrR
 
 xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
 xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
@@ -28,6 +26,7 @@ xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 dbus-launch --sh-syntax --exit-with-session
 
 eval $(ssh-agent)
+ibus-daemon -dxrR
 pipewire &
 mpd &
 /usr/local/bin/emacs --daemon &
