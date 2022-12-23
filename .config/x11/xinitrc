@@ -1,0 +1,26 @@
+#!/bin/sh
+
+rfkill block all
+
+eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "$envfile")"
+eval "$(ssh-agent)"
+
+xset r rate 300 30
+xset s off -dpms
+setxkbmap -option "ctrl:nocaps"
+
+xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
+xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
+
+dbus-launch --sh-syntax --exit-with-session
+
+ibus-daemon -dxrR
+statusbar &
+pipewire &
+mpd &
+/usr/local/bin/emacs --daemon &
+picom &
+set-wallpaper &
+
+exec dwm >/dev/null 2>&1
+
