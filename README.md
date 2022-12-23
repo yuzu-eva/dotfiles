@@ -1,11 +1,9 @@
 # Dotfiles Repository
 
 My personal dotfiles repository.  
-Listed commands work with ubuntu / debian based distros.  
+Listed commands work on debian.  
 
 ## nvim
-
-Not using this anymore. Still keeping it here, just in case.
 
 ### lspconfig requirements
 
@@ -20,7 +18,6 @@ My lspconfig uses language servers for:
 - JavaScript / TypeScript
 - Lua
 - Python
-- Ruby
 
 The following command block can be copy-pasted into a bash terminal.  
 It will install all requirements needed for the lspconfig to work.  
@@ -29,18 +26,19 @@ May need super user privilege.
 Requires npm, pip3, ruby and git.
 
 ```bash
-npm i -g vscode-langservers-extracted
-npm i -g typescript typescript-language-server
 npm i -g bash-language-server
 npm i -g emmet-ls
 pip3 install jedi
-pip3 install python-lsp-server[all]
-gem install solargraph
-sudo apt-get install clangd-12
+pip3 install python-lsp-server
+sudo apt-get install clangd-13
 git clone  --depth=1 https://github.com/sumneko/lua-language-server ~/.local/src/lua-language-server
 cd ~/.local/src/lua-language-server
 git submodule update --depth 1 --init --recursive
-cd -
+cd 3rd/luamake
+./compile/install.sh
+cd ../..
+./3rd/luamake/luamake rebuild
+cd
 ```
 
 ### Treesitter
