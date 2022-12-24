@@ -13,7 +13,7 @@ alias vi="$EDITOR"
 alias z='zathura'
 alias cn='clear;macchina'
 alias nnn='nnn -Hde'
-alias freyr='sudo docker run -it --rm -v /hdd/music:/data freyrcli/freyrjs'
+alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
 
 # cp mv and rm always verbose
 alias cp='cp -iv'
@@ -62,8 +62,8 @@ date-reverse() {
 ## DOWNLOADING AND CONVERTING VIDEO
 
 # shortcuts for most used yt-dlp settings
-alias ytvid='yt-dlp -o "/hdd/vids/random/%(title)s.%(ext)s" --remux-video "mkv"'
-alias ytarchive='yt-dlp -o "/hdd/vids/archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s" --remux-video "mkv"'
+alias ytvid='yt-dlp -o "/media/hdd/vids/random/%(title)s.%(ext)s" --remux-video "mkv"'
+alias ytarchive='yt-dlp -o "/media/hdd/vids/archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s" --remux-video "mkv"'
 
 # convert video files to webm
 mkwebm() {
