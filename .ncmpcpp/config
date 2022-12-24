@@ -4,7 +4,7 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 
 mpd_host = localhost
 mpd_port = 6600
-mpd_music_dir = /hdd/music
+mpd_music_dir = /media/hdd/music
 mpd_connection_timeout = 5
 
 # Playlist

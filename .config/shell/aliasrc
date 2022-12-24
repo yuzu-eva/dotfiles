@@ -1,8 +1,8 @@
 ## MISCELLANEOUS
 
 # various shortcuts
-alias reboot='sudo openrc-shutdown -r'
-alias poweroff='sudo openrc-shutdown -p'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 alias pms='sudo pm-suspend'
 alias refresh='source $ZDOTDIR/.zshrc'
 alias fuck='sudo $(fc -Lln -1)'
@@ -11,7 +11,7 @@ alias mutt='pushd ~/.mutt/attachments; mutt; popd'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias vi="$EDITOR"
 alias z='zathura'
-alias cn='clear;macchina'
+alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
 alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
 
