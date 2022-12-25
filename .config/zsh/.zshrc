@@ -84,7 +84,6 @@ setopt pushd_silent
 setopt pushd_ignore_dups
 setopt pushd_minus
 
-neofetch
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -97,18 +96,21 @@ if [ -f $XDG_CONFIG_HOME/shell/aliasrc ]; then
     . $XDG_CONFIG_HOME/shell/aliasrc
 fi
 
-if [ -f $HOME/.fzf/fzf.zsh ]; then
-	. $HOME/.fzf/fzf.zsh
-fi
-
+# FZF Section
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fdfind --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+if [ -f $HOME/.fzf/fzf.zsh ]; then
+	. $HOME/.fzf/fzf.zsh
+fi
 
 # NNN
 if [ -f $XDG_CONFIG_HOME/nnn/nnn.bash ]; then
 	. $XDG_CONFIG_HOME/nnn/nnn.bash
 fi
+
+neofetch
 
 if [ -f $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	. $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
