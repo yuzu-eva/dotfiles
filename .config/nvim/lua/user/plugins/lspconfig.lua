@@ -115,8 +115,8 @@ require 'lspconfig'.clangd.setup {
     flags = {
         debounce_text_changes = 150,
     },
+    cmd = { "/usr/bin/clangd-13" };
 }
-
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)

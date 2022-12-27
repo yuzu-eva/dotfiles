@@ -14,7 +14,7 @@ alias z='zathura'
 alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
 alias ea='vi ~/.config/shell/aliasrc'
-#alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
+alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
 
 # setting custom ascii
 alias neofetch='neofetch --source ~/docs/ascii/lain'

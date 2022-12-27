@@ -6,5 +6,6 @@ do
         "C-d") rm "$file" ;;
         "C-c") cat "$file" | xclip -sel c -t image/png ;;
         "C-w") xwallpaper --maximize "$file" ;;
+        "C-z") mv "$file" /media/hdd/pics/wallpaper/
     esac
 done
