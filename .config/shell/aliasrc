@@ -17,7 +17,7 @@ alias ea='vi ~/.config/shell/aliasrc'
 alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
 
 # setting custom ascii
-alias neofetch='neofetch --source ~/docs/ascii/lain'
+# alias neofetch='neofetch --source ~/docs/ascii/lain'
 
 # cp mv and rm always verbose
 alias cp='cp -iv'

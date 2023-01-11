@@ -14,7 +14,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export LC_ALL=en_US.UTF-8
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export MAIL=~/.mutt/Maildir
 export NO_AT_BRIDGE=1
 
