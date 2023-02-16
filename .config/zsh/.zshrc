@@ -1,6 +1,7 @@
 autoload -U colors && colors
 
 stty stop undef
+setopt no_nomatch
 
 autoload -U compinit
 zstyle ':completion:*' menu select

@@ -1,1 +1,1 @@
---verbose -ciw -f bestvideo[ext=mp4][vcodec!*=av01]+bestaudio[ext=m4a]/best[ext=mp4]/best --merge-output-format mkv 
+--verbose -ciw -f bestvideo[ext=mp4][vcodec!*=av01]+bestaudio[ext=m4a]/best[ext=mp4]/best --add-metadata --merge-output-format mkv 

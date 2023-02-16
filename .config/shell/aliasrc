@@ -14,6 +14,8 @@ alias z='zathura'
 alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
 alias ea='vi ~/.config/shell/aliasrc'
+alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+alias cam='mpv --profile=low-latency --untimed /dev/video0'
 alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
 
 # setting custom ascii
@@ -28,9 +30,17 @@ alias mkd='mkdir -pv'
 # Colorize grep output
 alias grep='grep --color=auto -i'
 
-# color ls, always full info and human readable; group dirs
+# ls shortcuts
 alias ls='ls -hl --color=always --group-directories-first'
 alias la='ls -a'
+
+ld() {
+    if [ "$1" = "" ]; then
+        ls -d */;
+    else
+        ls -d $1/*/ | sed "s|$1/||";
+    fi
+}
 
 # Control Audio
 alias headset="wpctl set-default $(wpctl status | grep 'Headphones' | cut -b11-12)"
@@ -44,6 +54,25 @@ alias setrmon-default='xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primar
 alias setlmon-lowres='xrandr --auto --output DisplayPort-2 --mode 640x480 --left-of HDMI-A-0'
 alias setlmon-midres='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
 alias setlmon-default='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
+
+# function for timer and stopwatch
+timer() {
+   date1=$((`date +%s` + $1)); 
+   while [ "$date1" -ge `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+   notify-send "Time Up"; pw-play "/usr/share/sounds/freedesktop/stereo/complete.oga"
+}
+
+stopwatch() {
+  date1=`date +%s`; 
+   while true; do 
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+    sleep 0.1
+   done
+}
+
 
 ## FUNCTIONS FOR CONVERTING DATE TO ISO 8601
 
@@ -63,15 +92,11 @@ date-reverse() {
     done;
 }
 
-## DOWNLOADING AND CONVERTING VIDEO
-
-# shortcuts for most used yt-dlp settings
-alias ytvid='yt-dlp -o "/media/hdd/vids/random/%(title)s.%(ext)s" --remux-video "mkv"'
-alias ytarchive='yt-dlp -o "/media/hdd/vids/archives/%(uploader)s/%(upload_date)s - %(title)s/%(title)s.%(ext)s" --remux-video "mkv"'
+## CONVERTING VIDEO
 
 # convert video files to webm
 mkwebm() {
-    ffmpeg -i "${1}" -crf 1 -b:v 1M -c:a libvorbis "${1%.*}".webm
+    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 1 -b:v 1M -c:a libvorbis "${1%.*}".webm
 }
 
 ## GIT
