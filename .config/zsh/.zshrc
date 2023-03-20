@@ -70,12 +70,6 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt hist_save_no_dups
 
-DIRSTACKFILE="${XDG_CACHE_HOME/.cache}/zsh/dirs"
-if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
-	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
-	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
-fi
-
 DIRSTACKSIZE='20'
 
 setopt auto_pushd
@@ -111,6 +105,10 @@ fi
 
 neofetch
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 if [ -f $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	. $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+

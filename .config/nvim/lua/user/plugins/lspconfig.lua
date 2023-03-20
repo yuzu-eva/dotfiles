@@ -56,13 +56,13 @@ require 'lspconfig'.emmet_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }
+    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'eruby' }
 }
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
@@ -116,6 +116,14 @@ require 'lspconfig'.clangd.setup {
         debounce_text_changes = 150,
     },
     cmd = { "/usr/bin/clangd-13" };
+}
+
+require 'lspconfig'.solargraph.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    }
 }
 
 -- suppress error messages from lang servers

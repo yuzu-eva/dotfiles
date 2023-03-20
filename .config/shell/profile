@@ -24,9 +24,7 @@ export XDG_SESSION_TYPE='x11'
 
 export NVM_DIR="$HOME/.config/nvm"
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:$HOME/.cargo/bin:/sbin:/usr/sbin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:$HOME/.cargo/bin:/sbin:/usr/sbin:$HOME/.rvm/bin"
 
-# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-# 	exec startx
-# fi
+
 

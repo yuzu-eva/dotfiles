@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-while read file
+while read -r file
 do
     case "$1" in
         "C-d") rm "$file" ;;
