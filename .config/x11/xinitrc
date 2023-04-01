@@ -1,0 +1,31 @@
+#!/bin/sh
+
+if [ -d "/etc/X11/Xsession.d" ]; then
+    for f in /etc/X11/Xsession.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+rfkill block all
+
+eval "$(gpg-agent --daemon --allow-preset-passphrase --write-env-file "$envfile")"
+eval "$(ssh-agent)"
+
+xset r rate 250 30
+xset s off -dpms
+setxkbmap -option "ctrl:nocaps"
+
+xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
+xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
+
+ibus-daemon -dxrR
+/usr/local/bin/emacs --daemon &
+statusbar &
+pipewire &
+mpd &
+picom &
+set-wallpaper &
+
+exec dwm
+

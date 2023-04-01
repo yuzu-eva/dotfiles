@@ -48,34 +48,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- provide additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-require 'lspconfig'.eslint.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    handlers = {
-        ['window/showMessageRequest'] = function(_, result, _) return result end,
-    },
-}
-
-require 'lspconfig'.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    }
-}
-
-require 'lspconfig'.html.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    }
-}
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require 'lspconfig'.emmet_ls.setup {
     on_attach = on_attach,
@@ -83,13 +56,13 @@ require 'lspconfig'.emmet_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }
+    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'eruby' }
 }
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
@@ -120,21 +93,6 @@ require 'lspconfig'.sumneko_lua.setup {
     },
 }
 
-require 'lspconfig'.solargraph.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    cmd = { "solargraph", "stdio" },
-    filetypes = { 'ruby' },
-    settings = {
-        solargraph = {
-            diagnostics = true,
-        },
-    },
-}
-
 require 'lspconfig'.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -157,8 +115,16 @@ require 'lspconfig'.clangd.setup {
     flags = {
         debounce_text_changes = 150,
     },
+    cmd = { "/usr/bin/clangd-13" };
 }
 
+require 'lspconfig'.solargraph.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    }
+}
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)

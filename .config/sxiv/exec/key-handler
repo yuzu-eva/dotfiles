@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-while read file
+while read -r file
 do
     case "$1" in
-        "C-d") trash-put "$file" ;;
+        "C-d") rm "$file" ;;
         "C-c") cat "$file" | xclip -sel c -t image/png ;;
         "C-w") xwallpaper --maximize "$file" ;;
+        "C-z") mv "$file" /media/hdd/pics/wallpaper/
     esac
 done
