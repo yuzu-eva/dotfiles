@@ -9,53 +9,11 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# vi mode
 setopt PROMPT_SUBST
 
-THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
-THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-'ᐅ'}
+bindkey -e
 
-THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-
-bindkey -v
-export KEYTIMEOUT=1
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-bindkey '^a' vi-beginning-of-line
-bindkey '^e' vi-end-of-line
-
-zle-keymap-select() {
-  if [ "${KEYMAP}" = 'vicmd' ]; then
-    THEME_VI_MODE_SYMBOL="${THEME_VI_CMD_MODE_SYMBOL}"
-  else
-    THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-  fi
-  zle reset-prompt
-}
-zle -N zle-keymap-select
-
-# reset to default mode at the end of line input reading
-zle-line-finish() {
-  THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-}
-zle -N zle-line-finish
-
-# Fix a bug when you C-c in CMD mode, you'd be prompted with CMD mode indicator
-# while in fact you would be in INS mode.
-# Fixed by catching SIGINT (C-c), set mode to INS and repropagate the SIGINT,
-# so if anything else depends on it, we will not break it.
-TRAPINT() {
-  THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-  return $(( 128 + $1 ))
-}
-
-PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[red]%}]%b%(?.%F{green}$THEME_VI_MODE_SYMBOL.%F{red}$THEME_VI_MODE_SYMBOL)%{$reset_color%} '
+PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[red]%}]%b '
 
 setopt extendedGlob
 

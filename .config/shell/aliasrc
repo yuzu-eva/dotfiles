@@ -105,6 +105,7 @@ mkwebm() {
 ## GIT
 
 # general shortcuts
+alias status='git status'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias upstream='git push --set-upstream origin'
