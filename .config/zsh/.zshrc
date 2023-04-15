@@ -11,7 +11,11 @@ _comp_options+=(globdots)
 
 setopt PROMPT_SUBST
 
+# use emacs keybindings
 bindkey -e
+
+# fix del key just inserting a tilde
+bindkey "^[[3~" delete-char
 
 PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[red]%}]%b '
 
@@ -36,8 +40,8 @@ setopt pushd_ignore_dups
 setopt pushd_minus
 
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -f $XDG_CONFIG_HOME/.dircolors ]; then
 	eval "$(dircolors -b $XDG_CONFIG_HOME/.dircolors)"
