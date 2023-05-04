@@ -15,7 +15,7 @@ playlist_show_remaining_time = yes
 browser_display_mode = columns
 autocenter_mode = yes
 follow_now_playing_lyrics = yes
-lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, genius, internet
+lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, internet
 
 # UI and colors
 colors_enabled = yes

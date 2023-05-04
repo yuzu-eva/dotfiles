@@ -8,17 +8,18 @@ alias fuck='doas $(fc -Lln -1)'
 alias open='xdg-open'
 alias mutt='pushd ~/.mutt/attachments; mutt; popd'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias vi="$EDITOR"
 alias emacsd='/usr/bin/emacs --daemon &'
 alias z='zathura'
 alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
-alias ea='vi ~/.config/shell/aliasrc'
-alias ez='vi ~/.config/zsh/.zshrc'
+alias ea='$EDITOR ~/.config/shell/aliasrc'
+alias ez='$EDITOR ~/.config/zsh/.zshrc'
 alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
-alias freyr='doas docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
-alias ofn='/usr/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+
+# rename files in pwd in their current order to 4-digit numbers
+alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
 # setting custom ascii
 # alias neofetch='neofetch --source ~/docs/ascii/lain'
@@ -35,6 +36,7 @@ alias grep='grep --color=auto -i'
 # ls shortcuts
 alias ls='ls -hl --color=always --group-directories-first'
 alias la='ls -a'
+alias lc='ls | tail -n +2 | wc -l'
 
 ld() {
     if [ "$1" = "" ]; then
@@ -121,7 +123,7 @@ alias dpush='dfiles push origin'
 
 alias eq='equery uses'
 alias emin='doas emerge -av'
-alias emrm='doas emerge -ac'
+alias emrm='doas emerge -avc'
 alias emup='doas emerge -avuND @world'
 alias ems='emerge -s'
 
