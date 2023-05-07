@@ -1,7 +1,7 @@
 umask 0077
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export EDITOR="nano"
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="icecat"
 
@@ -23,6 +23,3 @@ export XDG_SESSION_TYPE='x11'
 export VDPAU_DRIVER=radeonsi
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:/sbin:/usr/sbin"
-
-
-

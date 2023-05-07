@@ -4,7 +4,10 @@ stty stop undef
 setopt no_nomatch
 
 autoload -U compinit
+autoload -Uz vcs_info
+precmd() { vcs_info }
 zstyle ':completion:*' menu select
+zstyle ':vcs_info:git:*' formats ' (on %b)'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
@@ -17,7 +20,7 @@ bindkey -e
 # fix del key just inserting a tilde
 bindkey "^[[3~" delete-char
 
-PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[red]%}]%b '
+PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M%{$fg[white]%}${vcs_info_msg_0_}:%{$fg[yellow]%}%~]%{$reset_color%}%b '
 
 setopt extendedGlob
 
@@ -74,3 +77,5 @@ if [ -f $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 	. $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+
+alias luamake=/home/cafebabe/.local/src/lua-language-server/3rd/luamake/luamake

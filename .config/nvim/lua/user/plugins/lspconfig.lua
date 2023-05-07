@@ -68,7 +68,7 @@ require 'lspconfig'.lua_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { "/home/cafebabe/.local/src/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/.local/src/lua-language-server/bin/main.lua" };
+    cmd = { "/home/cafebabe/.local/share/lua-language-server/bin/lua-language-server", "-E", "/home/cafebabe/.local/share/lua-language-server/bin/main.lua" };
     settings = {
         Lua = {
             runtime = {
@@ -115,16 +115,16 @@ require 'lspconfig'.clangd.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { "/usr/bin/clangd-13" };
+    cmd = { "clangd" };
 }
 
-require 'lspconfig'.solargraph.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    }
-}
+-- require 'lspconfig'.solargraph.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     flags = {
+--         debounce_text_changes = 150,
+--     }
+-- }
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level, _)
