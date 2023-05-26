@@ -22,4 +22,7 @@ export XDG_SESSION_TYPE='x11'
 
 export VDPAU_DRIVER=radeonsi
 
+export EIX_LIMIT=0
+export EIX_LIMIT_COMPACT=0
+
 export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:/sbin:/usr/sbin"

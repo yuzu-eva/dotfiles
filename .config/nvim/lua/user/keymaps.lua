@@ -8,12 +8,6 @@ keymap('n', '<leader>Q', ':bufdo bdelete<CR>')
 -- Allow gf to open non-existant files
 keymap('n', 'gf', ':edit <cfile><CR>')
 
--- Quick navigation between splits
-keymap('n', '<c-h>', '<c-w>h')
-keymap('n', '<c-j>', '<c-w>j')
-keymap('n', '<c-k>', '<c-w>k')
-keymap('n', '<c-l>', '<c-w>l')
-
 -- Open the current file in the default program
 keymap('n', '<leader>x', ':!xdg-open %<CR><CR>')
 

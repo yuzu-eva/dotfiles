@@ -4,7 +4,7 @@ local keymap = require 'lib.utils'.keymap
 
 keymap('n', ';f', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 keymap('n', ';r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
-keymap('n', ';\\', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+keymap('n', ';b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 
 require('telescope').setup {
     defaults = {

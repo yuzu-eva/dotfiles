@@ -26,6 +26,9 @@ alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
 # set my preferred keyboard options
 alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
 
+# pad numbers in filenames with zeros
+alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
+
 # set custom ascii
 # alias neofetch='neofetch --source ~/docs/ascii/lain'
 
@@ -43,7 +46,7 @@ alias ls='ls -hl --color=always --group-directories-first'
 alias la='ls -a'
 alias lc='ls | tail -n +2 | wc -l'
 
-ld() {
+lsd() {
     if [ "$1" = "" ]; then
         ls -d */;
     else
@@ -125,9 +128,8 @@ alias dpush='dfiles push origin'
 
 ## PACKAGE MANAGER
 
-alias eq='equery uses'
+alias eq='equery'
 alias emin='doas emerge -av'
 alias emrm='doas emerge -avc'
 alias emup='doas emerge -avuND @world'
 alias ems='emerge -s'
-
