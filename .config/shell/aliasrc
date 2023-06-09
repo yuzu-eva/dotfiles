@@ -15,13 +15,17 @@ alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
 alias ea='vi ~/.config/shell/aliasrc'
 alias ez='vi ~/.config/zsh/.zshrc'
+alias eq='equery'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
+
+# need to sign hid-nintendo.ko with every kernel update
+alias signmod='doas /usr/src/linux/scripts/sign-file sha512 /usr/src/linux/certs/signing_key.pem /usr/src/linux/certs/signing_key.x509'
 
 # rename files in pwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
 # start freyr docker image to download music from spotify
-alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
+#alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
 
 # set my preferred keyboard options
 alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
@@ -126,10 +130,3 @@ alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
 alias dpush='dfiles push origin'
 
-## PACKAGE MANAGER
-
-alias eq='equery'
-alias emin='doas emerge -av'
-alias emrm='doas emerge -avc'
-alias emup='doas emerge -avuND @world'
-alias ems='emerge -s'

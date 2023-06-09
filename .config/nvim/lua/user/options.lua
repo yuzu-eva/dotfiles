@@ -22,4 +22,3 @@ vim.o.foldmethod = "expr"
 vim.o.foldlevelstart = 10
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.hlsearch = 0
-vim.o.colorcolumn = "80"

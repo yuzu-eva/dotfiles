@@ -99,4 +99,9 @@ require('packer').startup(function()
             require('user.plugins.luasnip')
         end
     }
+    use {'nvim-orgmode/orgmode',
+        config = function()
+            require('user.plugins.orgmode')
+        end
+    }
 end)

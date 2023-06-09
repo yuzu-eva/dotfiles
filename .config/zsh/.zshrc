@@ -4,6 +4,7 @@ stty stop undef
 setopt no_nomatch
 
 autoload -U compinit
+autoload -U edit-command-line
 autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':completion:*' menu select
@@ -12,6 +13,8 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
+zle -N edit-command-line
+
 setopt PROMPT_SUBST
 
 # use emacs keybindings
@@ -19,6 +22,8 @@ bindkey -e
 
 # fix del key just inserting a tilde
 bindkey "^[[3~" delete-char
+
+bindkey '^x^e' edit-command-line
 
 PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M%{$fg[white]%}${vcs_info_msg_0_}:%{$fg[yellow]%}%~]%{$reset_color%}%b '
 
@@ -67,8 +72,6 @@ fi
 if [ -f $XDG_CONFIG_HOME/nnn/nnn.bash ]; then
 	. $XDG_CONFIG_HOME/nnn/nnn.bash
 fi
-
-neofetch
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
