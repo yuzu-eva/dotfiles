@@ -35,11 +35,11 @@ types of DuckDuckGo.")
 										  :shortcut "gen"
 										  :search-url "https://wiki.gentoo.org/index.php?title=Sepcial%3ASearch&search=~a&go=Go"
 										  :fallback-url "https://wiki.gentoo.org")
-						   (make-instance 'search-engine
-										  :shortcut "lbx"
-										  :search-url "https://search.cafebabe.gay/search.php?q=~a"
-										  :fallback-url "https://search.cafebabe.gay")
 						   (engines:invidious
 							:shortcut "yt"
 							:base-search-url "https://invidious.cafebabe.gay/search?q=~a"
-							:fallback-url "https://invidious.cafebabe.gay")))))
+							:fallback-url "https://invidious.cafebabe.gay")
+						   (make-instance 'search-engine
+										  :shortcut "lbx"
+										  :search-url "https://search.cafebabe.gay/search.php?q=~a"
+										  :fallback-url "https://search.cafebabe.gay")))))
