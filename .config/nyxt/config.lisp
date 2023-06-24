@@ -32,7 +32,14 @@
 (define-configuration nyxt/mode/user-script:user-script-mode
 	((nyxt/mode/user-script:user-scripts
 	  (list
-	   (make-instance 'nyxt/mode/user-script:user-script :base-path #p"~/.config/nyxt/scripts/4chan-x.user.js")))))
+	   (make-instance 'nyxt/mode/user-script:user-script :base-path #p"~/.config/nyxt/scripts/4chan-x.user.js")
+	   (make-instance 'nyxt/mode/user-script:user-script :base-path #p"~/.config/nyxt/scripts/onee-chan.user.js")))))
+
+(define-configuration nyxt/mode/proxy:proxy-mode
+  ((nyxt/mode/proxy:proxy (make-instance 'proxy
+                                         :url (quri:uri "socks5://localhost:9050")
+                                         :allowlist '("localhost" "localhost:8080")
+                                         :proxied-downloads-p t))))
 
 (define-configuration (:modable-buffer :prompt-buffer :editor-buffer)
 	((default-modes `(:emacs-mode ,@%slot-value%))))

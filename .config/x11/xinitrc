@@ -16,6 +16,7 @@ xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 
 ~/.local/bin/set-wallpaper &
 /usr/bin/emacs --daemon &
+otd &
 pipewire &
 mpd &
 picom &
