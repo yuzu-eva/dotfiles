@@ -16,6 +16,7 @@ alias nnn='nnn -Hde'
 alias ea='vi ~/.config/shell/aliasrc'
 alias ez='vi ~/.config/zsh/.zshrc'
 alias eq='equery'
+alias sr='su - root'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
 
 # need to sign hid-nintendo.ko with every kernel update
