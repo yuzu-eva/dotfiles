@@ -3,7 +3,7 @@ umask 0077
 export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox-bin"
+export BROWSER="firefox"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -24,6 +24,8 @@ export VDPAU_DRIVER=radeonsi
 
 export EIX_LIMIT=0
 export EIX_LIMIT_COMPACT=0
+
+export LC_ALL=en_US.utf8
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:/sbin:/usr/sbin"
 

@@ -61,7 +61,7 @@ fi
 
 # FZF Section
 export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fdfind --type f"
+export FZF_DEFAULT_COMMAND="find -type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 if [ -f $HOME/.fzf/fzf.zsh ]; then

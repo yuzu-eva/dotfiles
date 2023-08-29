@@ -1,35 +1,37 @@
 ## MISCELLANEOUS
 
 # various shortcuts
-alias reboot='doas reboot'
-alias poweroff='doas poweroff'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 alias refresh='. $ZDOTDIR/.zshrc'
-alias fuck='doas $(fc -Lln -1)'
+alias fuck='sudo $(fc -Lln -1)'
 alias open='xdg-open'
 alias mutt='pushd ~/.mutt/attachments; mutt; popd'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias emacsd='/usr/bin/emacs --daemon &'
 alias vi='$EDITOR'
 alias z='zathura'
-alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
+alias cn='clear;neofetch'
 alias ea='vi ~/.config/shell/aliasrc'
 alias ez='vi ~/.config/zsh/.zshrc'
 alias eq='equery'
 alias sr='su - root'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
+alias df='df -h'
+alias tma='tmux a -t'
 
 # need to sign hid-nintendo.ko with every kernel update
-alias signmod='doas /usr/src/linux/scripts/sign-file sha512 /usr/src/linux/certs/signing_key.pem /usr/src/linux/certs/signing_key.x509'
+alias signmod='sudo /usr/src/linux/scripts/sign-file sha512 /usr/src/linux/certs/signing_key.pem /usr/src/linux/certs/signing_key.x509'
 
 # rename files in pwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
 # start freyr docker image to download music from spotify
-#alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
+# alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
 
 # set my preferred keyboard options
-alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"'
 
 # pad numbers in filenames with zeros
 alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
@@ -59,18 +61,29 @@ lsd() {
     fi
 }
 
+gls() {
+    if [ "$2" = "" ]; then
+        ls | grep "$1"
+    else
+        ls "$2" | grep "$1"
+    fi
+}
+
 # control audio
 alias headset="wpctl set-default $(wpctl status | grep 'Headphones' | cut -b11-12)"
 alias speakers="wpctl set-default $(wpctl status | grep 'Speakers' | cut -b11-12)"
 alias setvol='pactl set-sink-volume @DEFAULT_SINK@'
 
-# monitor / resolution settings, mainly for playing old-ass games
-alias setrmon-lowres='xrandr --auto --output HDMI-A-0 --mode 640x480 --primary'
-alias setrmon-midres='xrandr --auto --output HDMI-A-0 --mode 800x600 --primary'
-alias setrmon-default='xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary'
-alias setlmon-lowres='xrandr --auto --output DisplayPort-2 --mode 640x480 --left-of HDMI-A-0'
-alias setlmon-midres='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
-alias setlmon-default='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
+# monitor settings
+alias rmlr='xrandr --auto --output HDMI-A-0 --mode 640x480 --primary'
+alias rmmr='xrandr --auto --output HDMI-A-0 --mode 800x600 --primary'
+alias rmdr='xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary'
+alias lmlr='xrandr --auto --output DisplayPort-2 --mode 640x480 --left-of HDMI-A-0'
+alias lmmr='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
+alias lmdr='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
+alias mbl='sudo ddcutil --display 1 setvcp 10 0 && doas ddcutil --display 2 setvcp 10 0'
+alias mbm='sudo ddcutil --display 1 setvcp 10 50 && doas ddcutil --display 2 setvcp 10 50'
+alias mbh='sudo ddcutil --display 1 setvcp 10 80 && doas ddcutil --display 2 setvcp 10 80'
 
 # function for timer and stopwatch
 timer() {
