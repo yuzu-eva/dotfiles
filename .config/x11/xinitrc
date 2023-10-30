@@ -1,22 +1,22 @@
 #!/bin/sh
 
-# if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
-# 	eval $(dbus-launch --sh-syntax --exit-with-session)
-# fi
+if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
+	eval $(dbus-launch --sh-syntax --exit-with-session)
+fi
 
-# eval "$(gpg-agent --daemon --allow-preset-passphrase)"
+eval "$(gpg-agent --daemon --allow-preset-passphrase)"
 eval "$(ssh-agent)"
 
 xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary
 xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 
-xset r rate 200 20
+xset r rate 250 30
 xset s off -dpms
 setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"
 xrdb -merge ~/.Xresources
 
 ~/.local/bin/set-wallpaper &
-# /usr/bin/emacs --daemon &
+/usr/bin/emacs --daemon &
 
 urxvtd -q -o -f &
 pipewire &
