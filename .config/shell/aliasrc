@@ -4,25 +4,24 @@
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias refresh='. $ZDOTDIR/.zshrc'
+alias zzz='sudo zzz'
 alias fuck='sudo $(fc -Lln -1)'
 alias open='xdg-open'
-alias mutt='pushd ~/.mutt/attachments; mutt; popd'
+alias mutt='cd ~/.mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias emacsd='/usr/bin/emacs --daemon &'
+alias emacsd='/usr/local/bin/emacs --daemon &'
+alias em='emacsclient -c -a "emacs"'
 alias vi='$EDITOR'
 alias z='zathura'
 alias nnn='nnn -Hde'
 alias cn='clear;neofetch'
 alias ea='vi ~/.config/shell/aliasrc'
 alias ez='vi ~/.config/zsh/.zshrc'
-alias eq='equery'
 alias sr='su - root'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
 alias df='df -h'
 alias tma='tmux a -t'
-
-# need to sign hid-nintendo.ko with every kernel update
-alias signmod='sudo /usr/src/linux/scripts/sign-file sha512 /usr/src/linux/certs/signing_key.pem /usr/src/linux/certs/signing_key.x509'
+alias tmn='tmux new-session -s'
 
 # rename files in pwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
@@ -32,6 +31,7 @@ alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf
 
 # set my preferred keyboard options
 alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"'
+alias setus='setxkbmap -layout us,us -option "ctrl:nocaps"'
 
 # pad numbers in filenames with zeros
 alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
@@ -81,9 +81,9 @@ alias rmdr='xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary'
 alias lmlr='xrandr --auto --output DisplayPort-2 --mode 640x480 --left-of HDMI-A-0'
 alias lmmr='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
 alias lmdr='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
-alias mbl='sudo ddcutil --display 1 setvcp 10 0 && doas ddcutil --display 2 setvcp 10 0'
-alias mbm='sudo ddcutil --display 1 setvcp 10 50 && doas ddcutil --display 2 setvcp 10 50'
-alias mbh='sudo ddcutil --display 1 setvcp 10 80 && doas ddcutil --display 2 setvcp 10 80'
+alias mbl='sudo ddcutil --display 1 setvcp 10 0 && sudo ddcutil --display 2 setvcp 10 0'
+alias mbm='sudo ddcutil --display 1 setvcp 10 50 && sudo ddcutil --display 2 setvcp 10 50'
+alias mbh='sudo ddcutil --display 1 setvcp 10 80 && sudo ddcutil --display 2 setvcp 10 80'
 
 # function for timer and stopwatch
 timer() {
@@ -125,7 +125,7 @@ date-reverse() {
 
 # convert video files to webm
 mkwebm() {
-    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 1 -b:v 1M -c:a libvorbis "${1%.*}".webm
+    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 32 -b:v 300K -c:a libvorbis "${1%.*}".webm
 }
 
 ## GIT
@@ -143,3 +143,14 @@ alias push='git push origin'
 alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
 alias dpush='dfiles push origin'
+
+# package manager
+alias pacin='sudo pacman -S'
+alias pacrm='sudo pacman -Rns'
+alias pacup='sudo pacman -Syu'
+alias pacsr='pacman -Ss'
+alias pacbr='pacman -Slq | fzf --preview "pacman -Si {}" --layout=reverse'
+alias yayin='yay -S'
+alias yayrm='yay -Rns'
+alias yayup='yay -Syu'
+alias yaysr='yay -Ss'

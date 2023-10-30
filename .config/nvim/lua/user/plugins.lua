@@ -3,7 +3,6 @@ require('packer').startup(function()
     use { 'tpope/vim-commentary' }
     use { 'tpope/vim-surround' }
     use { 'tpope/vim-eunuch' }
-    use { 'tpope/vim-sleuth' }
     use { 'christoomey/vim-tmux-navigator' }
 
     use {
