@@ -146,7 +146,7 @@ alias dpush='dfiles push origin'
 # package manager
 alias aptsr='apt search'
 alias aptin='sudo apt install'
-alias aptrm='sudo apt remove'
+alias aptrm='sudo apt remove --autoremove'
 alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
 alias aptup='aptupd && aptupg'
