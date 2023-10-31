@@ -24,7 +24,7 @@ alias tma='tmux a -t'
 alias tmn='tmux new-session -s'
 
 # rename files in pwd in their current order to 4-digit numbers
-alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
 # start freyr docker image to download music from spotify
 # alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
@@ -34,7 +34,7 @@ alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -o
 alias setus='setxkbmap -layout us,us -option "ctrl:nocaps"'
 
 # pad numbers in filenames with zeros
-alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
+alias padz='rename "s/\d+/sprintf(\"%02d\",$&)/e"'
 
 # set custom ascii
 # alias neofetch='neofetch --source ~/docs/ascii/lain'
@@ -143,10 +143,13 @@ alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
 alias dpush='dfiles push origin'
 
-# package manager
+# package management
 alias aptsr='apt search'
 alias aptin='sudo apt install'
 alias aptrm='sudo apt remove --autoremove'
 alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
 alias aptup='aptupd && aptupg'
+alias aptli='apt list --installed'
+alias aptlu='apt list --upgradable'
+alias aptman='apt-mark showmanual'

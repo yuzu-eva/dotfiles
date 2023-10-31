@@ -16,7 +16,7 @@ setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,gr
 xrdb -merge ~/.Xresources
 
 ~/.local/bin/set-wallpaper &
-/usr/bin/emacs --daemon &
+/usr/local/bin/emacs --daemon &
 
 urxvtd -q -o -f &
 pipewire &
