@@ -25,7 +25,7 @@ bindkey "^[[3~" delete-char
 
 bindkey '^x^e' edit-command-line
 
-PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M%{$fg[white]%}${vcs_info_msg_0_}:%{$fg[yellow]%}%~]%{$reset_color%}%b '
+PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%m%{$fg[white]%}${vcs_info_msg_0_}:%{$fg[yellow]%}%~]%{$reset_color%}%b '
 
 setopt extendedGlob
 

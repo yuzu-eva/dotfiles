@@ -1,7 +1,13 @@
-URxvt*font: xft:Hack Nerd Font Mono:size=11:antialias=True,xft:JoyPixels:pixelsize=10
+/* URxvt*font: xft:Hack Nerd Font Mono:size=11:antialias=True,xft:JoyPixels:pixelsize=10 */
+
+URxvt.font: xft:Iosevka:style=Regular:size=13:antialias=True,xft:JoyPixels:pixelsize=10 
+URxvt.boldFont: xft:Iosevka Term:style=Bold:size=13:antialias=True
+URxvt.italicFont: xft:Iosevka Term:style=Italic:size=13:antialias=True
+URxvt.boldItalicFont: xft:Iosevka Term:style=Bold Italic:size=13:antialias=True
 
 !! colors and stuff
-URxvt.letterSpace: 0
+/* URxvt.letterSpace: 0 */
+URxvt.letterSpace: 1
 URxvt.scrollBar: False
 URxvt.depth: 32
 URxvt.background: [90]#000000
