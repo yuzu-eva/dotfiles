@@ -28,7 +28,8 @@ export EIX_LIMIT_COMPACT=0
 
 export LC_ALL=en_US.utf8
 
-export LD_LIBRARY_PATH="/usr/lib:/usr/local/lib"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:/sbin:/usr/sbin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:$HOME/.npm/bin:/sbin:/usr/sbin"
 
 neofetch

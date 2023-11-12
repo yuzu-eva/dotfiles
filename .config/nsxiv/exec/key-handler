@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-while read -r file
-do
-    case "$1" in
-        "C-d") rm "$file" ;;
-        "C-c") cat "$file" | xclip -sel c -t image/png ;;
-    esac
-done

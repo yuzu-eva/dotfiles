@@ -89,7 +89,7 @@ require'lspconfig'.lua_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { "/home/cafebabe/.emacs.d/.cache/lsp/lua-language-server/bin/lua-language-server" },
+    cmd = { "lua-language-server" },
 }
 
 require 'lspconfig'.bashls.setup {

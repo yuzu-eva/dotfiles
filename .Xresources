@@ -1,9 +1,9 @@
 /* URxvt*font: xft:Hack Nerd Font Mono:size=11:antialias=True,xft:JoyPixels:pixelsize=10 */
 
-URxvt.font: xft:Iosevka:style=Regular:size=13:antialias=True,xft:JoyPixels:pixelsize=10 
-URxvt.boldFont: xft:Iosevka Term:style=Bold:size=13:antialias=True
-URxvt.italicFont: xft:Iosevka Term:style=Italic:size=13:antialias=True
-URxvt.boldItalicFont: xft:Iosevka Term:style=Bold Italic:size=13:antialias=True
+URxvt.font: xft:Iosevka:style=Regular:size=13:antialias=True,xft:JoyPixels:pixelsize=10,xft:WenQuanYi Micro Hei Mono:size=12
+URxvt.boldFont: xft:Iosevka:style=Bold:size=13:antialias=True
+URxvt.italicFont: xft:Iosevka:style=Italic:size=13:antialias=True
+URxvt.boldItalicFont: xft:Iosevka:style=Bold Italic:size=13:antialias=True
 
 !! colors and stuff
 /* URxvt.letterSpace: 0 */

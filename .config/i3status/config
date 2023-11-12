@@ -11,20 +11,20 @@ general {
         interval = 5
 }
 
-order += "ethernet eth0"
+order += "ethernet enp39s0"
 order += "disk /"
 order += "load"
 order += "memory"
 order += "volume master"
 order += "tztime local"
 
-ethernet eth0{
-        format_up = "eth0: %ip (%speed)"
-        format_down = "eth0: down"
+ethernet enp39s0 {
+        format_up = "enp39s0: %ip (%speed)"
+        format_down = "enp39s0: down"
 }
 
 disk "/" {
-        format = "root: %avail"
+        format = "root: %used"
 }
 
 load {
