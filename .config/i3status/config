@@ -24,7 +24,7 @@ ethernet enp39s0 {
 }
 
 disk "/" {
-        format = "root: %used"
+        format = "total: %used"
 }
 
 load {

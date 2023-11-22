@@ -30,8 +30,8 @@ alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04
 # alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
 
 # set my preferred keyboard options
-alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"'
-alias setus='setxkbmap -layout us,us -option "ctrl:nocaps"'
+alias setkeys='xset r rate 250 30 && setxkbmap -layout us,de -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"'
+alias setus='setxkbmap -layout us -option "ctrl:nocaps"'
 
 # pad numbers in filenames with zeros
 alias padz='rename "s/\d+/sprintf(\"%02d\",$&)/e"'

@@ -12,7 +12,7 @@ xrandr --auto --output HDMI-A-0 --mode 1600x900 --left-of DisplayPort-2
 
 xset r rate 250 30
 xset s off -dpms
-setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"
+setxkbmap -layout us,de -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"
 xrdb -merge ~/.Xresources
 
 ~/.local/bin/set-wallpaper &
