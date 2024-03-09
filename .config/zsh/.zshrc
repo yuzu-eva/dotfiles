@@ -4,58 +4,28 @@ stty stop undef
 setopt no_nomatch
 
 autoload -U compinit
+autoload -U edit-command-line
+autoload -Uz vcs_info
+precmd() { vcs_info }
 zstyle ':completion:*' menu select
+zstyle ':vcs_info:git:*' formats ' (on %b)'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# vi mode
+zle -N edit-command-line
+
 setopt PROMPT_SUBST
 
-THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
-THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-'ᐅ'}
+# use emacs keybindings
+bindkey -e
 
-THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
+# fix del key just inserting a tilde
+bindkey "^[[3~" delete-char
 
-bindkey -v
-export KEYTIMEOUT=1
+bindkey '^x^e' edit-command-line
 
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-bindkey '^a' vi-beginning-of-line
-bindkey '^e' vi-end-of-line
-
-zle-keymap-select() {
-  if [ "${KEYMAP}" = 'vicmd' ]; then
-    THEME_VI_MODE_SYMBOL="${THEME_VI_CMD_MODE_SYMBOL}"
-  else
-    THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-  fi
-  zle reset-prompt
-}
-zle -N zle-keymap-select
-
-# reset to default mode at the end of line input reading
-zle-line-finish() {
-  THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-}
-zle -N zle-line-finish
-
-# Fix a bug when you C-c in CMD mode, you'd be prompted with CMD mode indicator
-# while in fact you would be in INS mode.
-# Fixed by catching SIGINT (C-c), set mode to INS and repropagate the SIGINT,
-# so if anything else depends on it, we will not break it.
-TRAPINT() {
-  THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
-  return $(( 128 + $1 ))
-}
-
-PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[red]%}]%b%(?.%F{green}$THEME_VI_MODE_SYMBOL.%F{red}$THEME_VI_MODE_SYMBOL)%{$reset_color%} '
+PROMPT='%B%{$fg[red]%}[%{$fg[magenta]%}%n%{$fg[green]%}@%{$fg[blue]%}%m%{$fg[white]%}${vcs_info_msg_0_}:%{$fg[yellow]%}%15<..<%~%<<]%{$reset_color%}%b '
 
 setopt extendedGlob
 
@@ -78,8 +48,8 @@ setopt pushd_ignore_dups
 setopt pushd_minus
 
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -f $XDG_CONFIG_HOME/.dircolors ]; then
 	eval "$(dircolors -b $XDG_CONFIG_HOME/.dircolors)"
@@ -91,7 +61,7 @@ fi
 
 # FZF Section
 export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fdfind --type f"
+export FZF_DEFAULT_COMMAND="find -type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 if [ -f $HOME/.fzf/fzf.zsh ]; then
@@ -103,12 +73,13 @@ if [ -f $XDG_CONFIG_HOME/nnn/nnn.bash ]; then
 	. $XDG_CONFIG_HOME/nnn/nnn.bash
 fi
 
-neofetch
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 if [ -f $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	. $XDG_DATA_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+if [ -f $XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+	. $XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi

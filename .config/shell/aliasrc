@@ -1,88 +1,71 @@
 ## MISCELLANEOUS
 
 # various shortcuts
-alias reboot='sudo reboot'
-alias poweroff='sudo poweroff'
-alias pms='sudo pm-suspend'
-alias refresh='source $ZDOTDIR/.zshrc'
-alias fuck='sudo $(fc -Lln -1)'
-alias open='xdg-open'
-alias mutt='pushd ~/.mutt/attachments; mutt; popd'
+alias reboot='doas reboot'
+alias poweroff='doas poweroff'
+alias refresh='. $ZDOTDIR/.zshrc'
+alias mutt='cd ~/.mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
-alias vi="$EDITOR"
-alias em='emacsclient -c -a "emacs" &'
-alias emacsd='/usr/local/bin/emacs --daemon &'
+alias emd='/usr/bin/emacs --daemon &'
+alias emc='emacsclient -c -a "emacs"'
 alias z='zathura'
-alias cn='clear;neofetch'
 alias nnn='nnn -Hde'
-alias ea='vi ~/.config/shell/aliasrc'
-alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+alias cn='clear;neofetch'
+alias ea='$EDITOR ~/.config/shell/aliasrc'
+alias ez='$EDITOR ~/.config/zsh/.zshrc'
+alias ep='$EDITOR ~/.config/shell/profile'
+alias lr='su - root'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
-alias freyr='sudo docker run -it --rm -v /media/hdd/music:/data freyrcli/freyrjs'
-alias ofn='/usr/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+alias df='df -h'
+alias tma='tmux a -t'
+alias tmn='tmux new-session -s'
 
-# setting custom ascii
+# compiler
+alias clang='clang -march=native -O3 -flto=thin'
+
+# rename files in pwd in their current order to 4-digit numbers
+alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+
+# start freyr docker image to download music from spotify
+# alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
+
+# set my preferred keyboard options
+alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+alias setus='setxkbmap -layout us -option "ctrl:nocaps"'
+
+# pad numbers in filenames with zeros
+alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
+
+# set custom ascii
 # alias neofetch='neofetch --source ~/docs/ascii/lain'
 
 # cp mv and rm always verbose
+# alias cp='cp -iv'
+# alias mv='mv -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
 alias mkd='mkdir -pv'
 
-# Colorize grep output
+# colorize grep output
 alias grep='grep --color=auto -i'
 
 # ls shortcuts
-alias ls='ls -hl --color=always --group-directories-first'
-alias la='ls -a'
+alias ls='ls --color=always --group-directories-first'
+alias ll='ls -lh'
+alias la='ll -A'
+alias lc='ls | wc -l'
 
-ld() {
-    if [ "$1" = "" ]; then
-        ls -d */;
-    else
-        ls -d $1/*/ | sed "s|$1/||";
-    fi
-}
-
-# Control Audio
+# control audio
 alias headset="wpctl set-default $(wpctl status | grep 'Headphones' | cut -b11-12)"
 alias speakers="wpctl set-default $(wpctl status | grep 'Speakers' | cut -b11-12)"
-alias setvol='pactl set-sink-volume @DEFAULT_SINK@'
-
-# Monitor / Resolution settings, mainly for playing old-ass games
-alias setrmon-lowres='xrandr --auto --output HDMI-A-0 --mode 640x480 --primary'
-alias setrmon-midres='xrandr --auto --output HDMI-A-0 --mode 800x600 --primary'
-alias setrmon-default='xrandr --auto --output HDMI-A-0 --mode 1920x1080 --primary'
-alias setlmon-lowres='xrandr --auto --output DisplayPort-2 --mode 640x480 --left-of HDMI-A-0'
-alias setlmon-midres='xrandr --auto --output DisplayPort-2 --mode 800x600 --left-of HDMI-A-0'
-alias setlmon-default='xrandr --auto --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0'
-
-# function for timer and stopwatch
-timer() {
-   date1=$((`date +%s` + $1)); 
-   while [ "$date1" -ge `date +%s` ]; do 
-     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
-     sleep 0.1
-   done
-   notify-send "Time Up"; pw-play "/usr/share/sounds/freedesktop/stereo/complete.oga"
-}
-
-stopwatch() {
-  date1=`date +%s`; 
-   while true; do 
-    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
-    sleep 0.1
-   done
-}
-
 
 ## FUNCTIONS FOR CONVERTING DATE TO ISO 8601
 
 # convert date from YYYYMMDD to YYYY-MM-DD
 date-convert() {
     for i in *; do
-        mv "${i}" "$(echo "${i}" |
+        /bin/mv "${i}" "$(echo "${i}" |
         sed 's/\([0-9][0-9][0-9][0-9]\)\([0-9][0-9]\)\([0-9][0-9]\)/\1-\2-\3/')"
     done;
 }
@@ -90,7 +73,7 @@ date-convert() {
 # reverse date from DD-MM-YYYY to YYYY-MM-DD
 date-reverse() {
     for i in *; do
-        mv "${i}" "$(echo "${i}" |
+        /bin/mv "${i}" "$(echo "${i}" |
         sed 's/\([0-9][0-9]\)-\([0-9][0-9]\)-\([0-9][0-9][0-9][0-9]\)/\3-\1-\2/')"
     done;
 }
@@ -99,12 +82,17 @@ date-reverse() {
 
 # convert video files to webm
 mkwebm() {
-    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 1 -b:v 1M -c:a libvorbis "${1%.*}".webm
+    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 12  -b:v 1M -c:a libvorbis "${1%.*}".webm
+}
+
+mkmp4() {
+    ffmpeg -i "${1}" -c:v libx264 -crf 32  -b:v 1M -c:a aac "${1%.*}".mp4
 }
 
 ## GIT
 
 # general shortcuts
+alias status='git status'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias upstream='git push --set-upstream origin'
@@ -117,14 +105,19 @@ alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
 alias dpush='dfiles push origin'
 
-## PACKAGE MANAGER
-
-alias aptin='sudo apt install'
-alias aptup='sudo apt update && sudo apt upgrade'
-alias aptupd='sudo apt update'
-alias aptupg='sudo apt upgrade'
-alias aptrm='sudo apt remove'
-alias aptsr='sudo apt search'
-alias aptsh='sudo apt show'
-alias listup='sudo apt list --upgradeable'
-alias listin='sudo apt list --installed'
+# package management
+alias qu='equery u'
+alias qd='equery d'
+alias qg='equery g'
+alias qf='equery f'
+alias qb='equery b'
+alias qy='equery y'
+alias eli='eix -c --installed'
+alias els='eix -c --selected'
+alias pemup='emerge -pvuND @world'
+alias emup='doas emerge -vuND @world'
+alias pemin='emerge -pv'
+alias emin='doas emerge -v'
+alias pemrm='emerge -pvc'
+alias emrm='doas emerge -vc'
+alias emsr='emerge -s'

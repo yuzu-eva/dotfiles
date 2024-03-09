@@ -1,0 +1,56 @@
+URxvt.preeditType:Root
+! input method
+URxvt.imLocale: ja_JP.utf8
+URxvt.imFont: xft:WenQuanYi Micro Hei Mono:size=12
+URxvt.inputMethod: ibus
+
+URxvt.*font: xft:Iosevka Term Custom:style=Regular:size=13:antialias=True,xft:JoyPixels:pixelsize=10
+
+!! true transparency
+URxvt.depth: 32
+URxvt.background: [90]#000000
+URxvt.foreground: #ffffff
+
+!! visuals and colors
+/* URxvt.letterSpace: 0 */
+URxvt.letterSpace: 2
+URxvt.scrollBar: False
+URxvt.externalBorder: 0
+URxvt.internalBorder: 0
+URxvt.backgroundBorder: 0
+URxvt.borderLess: False
+!! black
+URxvt.color0: #000000
+URxvt.color8: #343636
+!! red
+URxvt.color1: #e74c7c
+URxvt.color9: #c26f6f
+!! green
+URxvt.color2: #6bb05d
+URxvt.color10: #8dc776
+!! yellow
+URxvt.color3: #e59e67
+URxvt.color11: #e7ac7e
+!! indigo
+URxvt.color4: #5b98a9
+URxvt.color12: #7ab3c3
+!! lavender
+URxvt.color5: #b185db
+URxvt.color13: #bb84e5
+!! cyan
+URxvt.color6: #51a39f
+URxvt.color14: #6db0ad
+!! white
+URxvt.color7: #c4c4c4
+URxvt.color15: #cccccc
+
+
+!! perl extensions
+URxvt.perl-ext-common: default,url-select,resize-font,selection-to-clipboard,-confirm-paste
+URxvt.matcher.button: 1
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+URxvt.iso14755: False
+URxvt.iso14755_52: False

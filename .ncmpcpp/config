@@ -1,6 +1,6 @@
 # Files
 ncmpcpp_directory = ~/.ncmpcpp
-lyrics_directory = ~/.ncmpcpp/lyrics
+lyrics_directory = ~/.config/mpd/lyrics
 
 mpd_host = localhost
 mpd_port = 6600
@@ -18,6 +18,7 @@ follow_now_playing_lyrics = yes
 lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, genius, internet
 
 # UI and colors
+external_editor = vim
 colors_enabled = yes
 current_item_prefix = $(blue)$r
 current_item_suffix = $/r$(end)
@@ -38,10 +39,3 @@ now_playing_prefix = "> "
 centered_cursor = yes
 display_bitrate = yes
 enable_window_title = yes
-
-# Visualizer
-visualizer_data_source = /tmp/mpd.fifo
-visualizer_output_name = Visualizer feed
-visualizer_in_stereo = yes
-visualizer_type = spectrum
-visualizer_look = +|

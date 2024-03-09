@@ -1,8 +1,8 @@
 umask 0077
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export EDITOR="nvim"
-export TERMINAL="st"
+export EDITOR="vim"
+export TERMINAL="urxvt"
 export BROWSER="firefox"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -12,8 +12,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export LC_ALL=en_US.UTF-8
-
 export MAIL=~/.mutt/Maildir
 export NO_AT_BRIDGE=1
 
@@ -21,10 +19,16 @@ export GTK_IM_MODULE='ibus'
 export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 export XDG_SESSION_TYPE='x11'
+export XDG_CURRENT_DESKTOP='i3'
 
-export NVM_DIR="$HOME/.config/nvm"
+export VDPAU_DRIVER=radeonsi
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:$HOME/.cargo/bin:/sbin:/usr/sbin:$HOME/.rvm/bin"
+export EIX_LIMIT=0
+export EIX_LIMIT_COMPACT=0
 
+export LC_ALL=en_US.utf8
 
-
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig"
+export MANPATH="$MANPATH:/usr/local/man"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.fzf/bin:$HOME/.npm/bin:/sbin:/usr/sbin"

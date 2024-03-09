@@ -1,0 +1,60 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "ethernet br0"
+order += "ethernet tun0"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "volume master"
+order += "tztime local"
+
+ethernet br0 {
+        format_up = "E: %ip"
+        format_down = "E: down"
+}
+
+ethernet tun0 {
+        format_up = "VPN: %ip"
+        format_down = "VPN: down"
+}
+
+cpu_temperature 0 {
+    format = "CPU Temp: %degrees °C"
+    path = "/sys/devices/platform/nct6775.2592/hwmon/hwmon3/temp1_input"
+}
+
+disk "/" {
+        format = "Porn Folder: %used"
+}
+
+load {
+        format = "Load: %1min"
+}
+
+memory {
+        format = "Memory: %used/%total"
+        threshold_degraded = "3GB"
+        format_degraded = "MEMORY < %available"
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+}
+
+tztime local {
+        format = "%A, %Y-%m-%d %H:%M "
+}
