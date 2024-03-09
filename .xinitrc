@@ -1,1 +1,1 @@
-.config/x11/xinitrc
+/home/cafebabe/.config/x11/xinitrc

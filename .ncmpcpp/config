@@ -15,10 +15,10 @@ playlist_show_remaining_time = yes
 browser_display_mode = columns
 autocenter_mode = yes
 follow_now_playing_lyrics = yes
-lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, internet
+lyrics_fetchers = azlyrics, musixmatch, justsomelyrics, genius, internet
 
 # UI and colors
-external_editor = nvim
+external_editor = vim
 colors_enabled = yes
 current_item_prefix = $(blue)$r
 current_item_suffix = $/r$(end)

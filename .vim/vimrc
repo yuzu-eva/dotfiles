@@ -10,6 +10,7 @@ set hidden
 set noswapfile
 set laststatus=2
 set shortmess+=c
+set clipboard=unnamedplus
 
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript']
 

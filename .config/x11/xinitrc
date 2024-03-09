@@ -7,18 +7,21 @@ fi
 eval "$(gpg-agent --daemon --allow-preset-passphrase)"
 eval "$(ssh-agent)"
 
-xrandr --auto --output DisplayPort-2 --mode 1920x1080 --primary
-xrandr --auto --output HDMI-A-0 --mode 1600x900 --left-of DisplayPort-2
+xrandr --addmode HDMI-A-0 1280x960
+xrandr --output HDMI-A-0 --mode 1280x960 --primary
+xrandr --output DisplayPort-1 --mode 1920x1080 --right-of HDMI-A-0
+xrandr --output DisplayPort-2 --mode 1600x900 --left-of HDMI-A-0
 
 xset r rate 250 30
 xset s off -dpms
-setxkbmap -layout us,de -variant dvorak, -option "ctrl:nocaps,lv3:rwin_switch,grp:alt_space_toggle"
+setxkbmap -option "ctrl:nocaps"
 xrdb -merge ~/.Xresources
 
 ~/.local/bin/set-wallpaper &
 /usr/bin/emacs --daemon &
 
 urxvtd -q -o -f &
+ibus-daemon -d -r -x 
 pipewire &
 picom &
 mpd &
