@@ -1,1 +1,1 @@
-/home/cafebabe/.config/shell/profile
+.config/shell/profile
