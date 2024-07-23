@@ -48,7 +48,8 @@ bindsym $mod+Shift+E exec emacsclient -c -a "emacs"
 bindsym $mod+z exec boomer
 bindsym $mod+c exec mpdmenu
 bindsym $mod+Shift+M exec mpdinfo
-bindsym $mod+b exec bm
+bindsym $mod+b exec bm -o
+bindsym $mod+Control+b exec bm -y
 bindsym --release Print exec scrot -u -e 'mv $f ~/pics/'
 bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/pics/'
 

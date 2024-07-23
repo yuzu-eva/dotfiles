@@ -1,3 +1,5 @@
+umask 0077
+
 autoload -U colors && colors
 
 stty stop undef
@@ -64,8 +66,8 @@ export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="find -type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-if [ -f $HOME/.fzf/fzf.zsh ]; then
-	. $HOME/.fzf/fzf.zsh
+if [ -f $HOME/.local/src/fzf/fzf.zsh ]; then
+	. $HOME/.local/src/fzf/fzf.zsh
 fi
 
 # NNN

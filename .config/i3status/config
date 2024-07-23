@@ -31,12 +31,12 @@ ethernet tun0 {
 }
 
 cpu_temperature 0 {
-    format = "CPU Temp: %degrees °C"
+    format = "T: %degrees °C"
     path = "/sys/devices/platform/nct6775.2592/hwmon/hwmon3/temp1_input"
 }
 
 disk "/" {
-        format = "Porn Folder: %used"
+        format = "ssd: %used"
 }
 
 load {

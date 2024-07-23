@@ -4,7 +4,7 @@
 alias reboot='doas reboot'
 alias poweroff='doas poweroff'
 alias refresh='. $ZDOTDIR/.zshrc'
-alias mutt='cd ~/.mutt/attachments; mutt; cd -'
+alias mutt='cd ~/.config/mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias emd='/usr/bin/emacs --daemon &'
 alias emc='emacsclient -c -a "emacs"'
@@ -23,14 +23,11 @@ alias tmn='tmux new-session -s'
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'
 
-# rename files in pwd in their current order to 4-digit numbers
+# rename files in cwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
-# start freyr docker image to download music from spotify
-# alias freyr='docker run -it -v /media/hdd/music:/data freyr-dev'
-
-# set my preferred keyboard options
-alias setkeys='xset r rate 250 30 && setxkbmap -option "ctrl:nocaps"'
+# set preferred keyboard options
+alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps"'
 alias setus='setxkbmap -layout us -option "ctrl:nocaps"'
 
 # pad numbers in filenames with zeros
@@ -49,6 +46,8 @@ alias mkd='mkdir -pv'
 
 # colorize grep output
 alias grep='grep --color=auto -i'
+alias zgrep='zgrep --color=auto -i'
+alias egrep='egrep --color=auto -i'
 
 # ls shortcuts
 alias ls='ls --color=always --group-directories-first'
@@ -57,8 +56,8 @@ alias la='ll -A'
 alias lc='ls | wc -l'
 
 # control audio
-alias headset="wpctl set-default $(wpctl status | grep 'Headphones' | cut -b11-12)"
-alias speakers="wpctl set-default $(wpctl status | grep 'Speakers' | cut -b11-12)"
+alias headset='wpctl set-default "$(wpctl status | grep Headphones | cut -b11-12)"'
+alias speakers='wpctl set-default "$(wpctl status | grep Speakers | cut -b11-12)"'
 
 ## FUNCTIONS FOR CONVERTING DATE TO ISO 8601
 
@@ -82,11 +81,11 @@ date-reverse() {
 
 # convert video files to webm
 mkwebm() {
-    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 12  -b:v 1M -c:a libvorbis "${1%.*}".webm
+    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 32 -c:a libvorbis "${1%.*}.webm"
 }
 
 mkmp4() {
-    ffmpeg -i "${1}" -c:v libx264 -crf 32  -b:v 1M -c:a aac "${1%.*}".mp4
+    ffmpeg -i "${1}" -c:v libx264 -crf 32 -c:a aac "${1%.*}.mp4"
 }
 
 ## GIT
@@ -114,6 +113,7 @@ alias qb='equery b'
 alias qy='equery y'
 alias eli='eix -c --installed'
 alias els='eix -c --selected'
+alias esync='doas emaint sync'
 alias pemup='emerge -pvuND @world'
 alias emup='doas emerge -vuND @world'
 alias pemin='emerge -pv'
