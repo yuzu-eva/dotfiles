@@ -2,7 +2,7 @@
 
 # various shortcuts
 alias reboot='doas reboot'
-alias poweroff='doas poweroff'
+alias poweroff='doas shutdown -hP now'
 alias refresh='. $ZDOTDIR/.zshrc'
 alias mutt='cd ~/.config/mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
