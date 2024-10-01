@@ -1,8 +1,8 @@
 ## MISCELLANEOUS
 
 # various shortcuts
-alias reboot='doas reboot'
-alias poweroff='doas shutdown -hP now'
+alias reboot='sudo reboot'
+alias poweroff='sudo shutdown -hP now'
 alias refresh='. $ZDOTDIR/.zshrc'
 alias mutt='cd ~/.config/mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
@@ -10,7 +10,7 @@ alias emd='/usr/bin/emacs --daemon &'
 alias emc='emacsclient -c -a "emacs"'
 alias z='zathura'
 alias nnn='nnn -Hde'
-alias cn='clear;neofetch'
+alias cl='clear;fastfetch'
 alias ea='$EDITOR ~/.config/shell/aliasrc'
 alias ez='$EDITOR ~/.config/zsh/.zshrc'
 alias ep='$EDITOR ~/.config/shell/profile'
@@ -25,6 +25,9 @@ alias clang='clang -march=native -O3 -flto=thin'
 
 # rename files in cwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+
+# restart pipewire after hibernation bug
+alias pw-restart='pkill pipewire && sleep 3s && setsid pipewire &>/dev/null'
 
 # set preferred keyboard options
 alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps"'
@@ -58,6 +61,8 @@ alias lc='ls | wc -l'
 # control audio
 alias headset='wpctl set-default "$(wpctl status | grep Headphones | cut -b11-12)"'
 alias speakers='wpctl set-default "$(wpctl status | grep Speakers | cut -b11-12)"'
+alias getvol='wpctl get-volume @DEFAULT_SINK@'
+alias setvol='wpctl set-volume @DEFAULT_SINK@'
 
 ## FUNCTIONS FOR CONVERTING DATE TO ISO 8601
 
@@ -113,11 +118,11 @@ alias qb='equery b'
 alias qy='equery y'
 alias eli='eix -c --installed'
 alias els='eix -c --selected'
-alias esync='doas emaint sync'
+alias esync='sudo emaint sync'
 alias pemup='emerge -pvuND @world'
-alias emup='doas emerge -vuND @world'
+alias emup='sudo emerge -vuND @world'
 alias pemin='emerge -pv'
-alias emin='doas emerge -v'
+alias emin='sudo emerge -v'
 alias pemrm='emerge -pvc'
-alias emrm='doas emerge -vc'
+alias emrm='sudo emerge -vc'
 alias emsr='emerge -s'

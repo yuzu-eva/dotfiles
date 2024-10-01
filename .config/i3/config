@@ -46,7 +46,7 @@ bindsym $mod+Shift+F exec firefox -P default-release
 bindsym $mod+Shift+B exec firefox -P less-strict
 bindsym $mod+Shift+E exec emacsclient -c -a "emacs"
 bindsym $mod+z exec boomer
-bindsym $mod+c exec mpdmenu
+bindsym $mod+m exec mpdmenu
 bindsym $mod+Shift+M exec mpdinfo
 bindsym $mod+b exec bm -o
 bindsym $mod+Control+b exec bm -y

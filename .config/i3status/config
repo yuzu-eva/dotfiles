@@ -13,6 +13,7 @@ general {
 
 order += "ethernet br0"
 order += "ethernet tun0"
+order += "ethernet wg0"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "load"
@@ -26,8 +27,13 @@ ethernet br0 {
 }
 
 ethernet tun0 {
-        format_up = "VPN: %ip"
-        format_down = "VPN: down"
+        format_up = "openVPN: %ip"
+        format_down = "openVPN: down"
+}
+
+ethernet wg0 {
+	format_up = "WG: %ip"
+	format_down = "WG: down"
 }
 
 cpu_temperature 0 {
