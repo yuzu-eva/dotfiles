@@ -1,5 +1,6 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
-export EDITOR="vim"
+export EDITOR="nano"
+export SUDO_EDITOR="nano"
 export TERMINAL="urxvt"
 export BROWSER="firefox"
 

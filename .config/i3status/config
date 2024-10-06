@@ -38,7 +38,7 @@ ethernet wg0 {
 
 cpu_temperature 0 {
     format = "T: %degrees °C"
-    path = "/sys/devices/platform/nct6775.2592/hwmon/hwmon3/temp1_input"
+    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
 }
 
 disk "/" {

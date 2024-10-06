@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
-	eval $(dbus-launch --sh-syntax --exit-with-session)
-fi
+#if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
+#	eval $(dbus-launch --sh-syntax --exit-with-session)
+#fi
 
 eval "$(gpg-agent --daemon --allow-preset-passphrase)"
 eval "$(ssh-agent)"
@@ -10,6 +10,8 @@ eval "$(ssh-agent)"
 xrandr --addmode HDMI-A-0 1280x960
 xrandr --output DisplayPort-2 --mode 1920x1080 --primary
 xrandr --output HDMI-A-0 --mode 1280x960 --left-of DisplayPort-2
+
+rfkill block bluetooth
 
 xset r rate 250 30
 xset s off -dpms
