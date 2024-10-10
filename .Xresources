@@ -1,3 +1,5 @@
+XCursor.theme: Adwaita
+
 URxvt.preeditType:Root
 ! input method
 URxvt.imLocale: ja_JP.utf8

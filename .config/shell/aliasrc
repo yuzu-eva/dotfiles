@@ -14,12 +14,11 @@ alias cl='clear;fastfetch'
 alias ea='$EDITOR ~/.config/shell/aliasrc'
 alias ez='$EDITOR ~/.config/zsh/.zshrc'
 alias ep='$EDITOR ~/.config/shell/profile'
-alias lr='su - root'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
 alias df='df -h'
 alias tma='tmux a -t'
 alias tmn='tmux new-session -s'
-alias sxiv='/usr/bin/nsxiv'
+alias sxiv='~/.local/bin/iv'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
@@ -30,26 +29,19 @@ alias clang='clang -march=native -O3 -flto=thin'
 # rename files in cwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
-# restart pipewire after hibernation bug
+# restart pipewire after suspend bug
 alias pw-restart='pkill pipewire && sleep 3s && setsid pipewire &>/dev/null'
 
 # set preferred keyboard options
 alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -option "ctrl:nocaps"'
-alias setus='setxkbmap -layout us -option "ctrl:nocaps"'
 
 # pad numbers in filenames with zeros
 alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
 
-# set custom ascii
-# alias neofetch='neofetch --source ~/docs/ascii/lain'
-
 # cp mv and rm always verbose
-# alias cp='cp -iv'
-# alias mv='mv -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
-alias mkd='mkdir -pv'
 
 # colorize grep output
 alias grep='grep --color=auto -i'
@@ -68,7 +60,7 @@ alias speakers='wpctl set-default "$(wpctl status | grep Speakers | cut -b11-12)
 alias getvol='wpctl get-volume @DEFAULT_SINK@'
 alias setvol='wpctl set-volume @DEFAULT_SINK@'
 
-## FUNCTIONS FOR CONVERTING DATE TO ISO 8601
+## FUNCTIONS FOR CONVERTING DATES
 
 # convert date from YYYYMMDD to YYYY-MM-DD
 date-convert() {
@@ -103,15 +95,15 @@ mkmp4() {
 alias status='git status'
 alias commit='git commit -m'
 alias fetch='git fetch'
-alias upstream='git push --set-upstream origin'
-alias remote='git remote add origin'
-alias pull='git pull origin'
-alias push='git push origin'
+alias upstream='git push --set-upstream'
+alias remote='git remote add'
+alias pull='git pull'
+alias push='git push'
 
 # shortcut for dotfiles repo
 alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
-alias dpush='dfiles push origin'
+alias dpush='dfiles push'
 
 # package management
 alias xin='sudo xbps-install -S'

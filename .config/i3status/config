@@ -26,23 +26,19 @@ ethernet br0 {
         format_down = "E: down"
 }
 
-ethernet tun0 {
-        format_up = "openVPN: %ip"
-        format_down = "openVPN: down"
-}
-
 ethernet wg0 {
 	format_up = "WG: %ip"
 	format_down = "WG: down"
 }
 
 cpu_temperature 0 {
-    format = "T: %degrees °C"
-    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
+    format = "Tea: %degrees °C"
+#    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
+    path = "/sys/devices/pci0000:00/0000:00:03.1/0000:2d:00.0/0000:2e:00.0/0000:2f:00.0/hwmon/hwmon2/temp1_input"
 }
 
 disk "/" {
-        format = "ssd: %used"
+        format = "Porn: %used"
 }
 
 load {

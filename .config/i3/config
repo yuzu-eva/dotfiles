@@ -42,9 +42,10 @@ bindsym $mod+p exec --no-startup-id dmenu_run -fn "Hack Nerd Font:size=11" -nb "
 bindsym $mod+Shift+C kill
 
 # application launchers
+
 bindsym $mod+Shift+F exec firefox -P default-release
 bindsym $mod+Shift+B exec firefox -P less-strict
-bindsym $mod+Shift+E exec emacsclient -c -a "emacs"
+bindsym $mod+Shift+E exec emacsclient -c -a ""
 bindsym $mod+z exec boomer
 bindsym $mod+m exec mpdmenu
 bindsym $mod+Shift+M exec mpdinfo

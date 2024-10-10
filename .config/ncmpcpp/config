@@ -18,7 +18,7 @@ follow_now_playing_lyrics = yes
 lyrics_fetchers = genius, tekstowo, plyrics, justsomelyrics, jahlyrics, zeneszoveg, internet
 
 # UI and colors
-external_editor = vim
+external_editor = nano
 colors_enabled = yes
 current_item_prefix = $(blue)$r
 current_item_suffix = $/r$(end)
