@@ -32,21 +32,21 @@ ethernet wg0 {
 }
 
 cpu_temperature 0 {
-    format = "Tea: %degrees °C"
-#    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
-    path = "/sys/devices/pci0000:00/0000:00:03.1/0000:2d:00.0/0000:2e:00.0/0000:2f:00.0/hwmon/hwmon2/temp1_input"
+    format = "temp: %degrees °C"
+    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input"
+#    path = "/sys/devices/pci0000:00/0000:00:03.1/0000:2d:00.0/0000:2e:00.0/0000:2f:00.0/hwmon/hwmon2/temp1_input"
 }
 
 disk "/" {
-        format = "Porn: %used"
+        format = "root: %used"
 }
 
 load {
-        format = "Load: %1min"
+        format = "load: %1min"
 }
 
 memory {
-        format = "Memory: %used/%total"
+        format = "memory: %used/%total"
         threshold_degraded = "3GB"
         format_degraded = "MEMORY < %available"
 }

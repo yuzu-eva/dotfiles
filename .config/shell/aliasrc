@@ -16,7 +16,6 @@ alias cam='mpv --profile=low-latency --untimed /dev/video0'
 alias df='df -h'
 alias tma='tmux a -t'
 alias tmn='tmux new-session -s'
-alias sxiv='~/.local/bin/iv'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
@@ -27,7 +26,7 @@ alias clang='clang -march=native -O3 -flto=thin'
 # rename files in cwd in their current order to 4-digit numbers
 alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
-# restart pipewire after suspend bug
+# restart pipewire after suspend if it stops working
 alias pw-restart='pkill pipewire && sleep 3s && setsid pipewire &>/dev/null'
 
 # set preferred keyboard options
@@ -104,6 +103,8 @@ alias dcomm='dfiles commit -m'
 alias dpush='dfiles push'
 
 # package management
-alias xin='sudo xbps-install -S'
-alias xup='sudo xbps-install -Su'
-alias xqr='xbps-query -Rs'
+alias xbin='sudo xbps-install -S'
+alias xbup='sudo xbps-install -Su'
+alias xbrm='sudo xbps-remove -R'
+alias xbqr='xbps-query -Rs'
+alias xbqm='xbps-query --list-manual-pkg'
