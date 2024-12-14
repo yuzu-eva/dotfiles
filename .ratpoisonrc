@@ -93,7 +93,7 @@ definekey top XF86AudioPlay exec mpc toggle && exec ratpoison -c "echo $(mpc sta
 # Information
 bind C-v exec ratpoison -c "echo $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{ print $3,$1,$2*100 }')%"
 bind C-a exec ratpoison -c "echo `date +'%A, %F - %H:%M'`  `cal | tail -n +2 | sed -e 's/^Su/\n\n Su/' -e 's/.*/ & /' -e \"s/\ $(date +%e) /\<$(date +%e)\>/\"`"
-bind C-s exec ratpoison -c "echo $(date +'%A, %F - %H:%M')"
+bind C-d exec ratpoison -c "echo $(date +'%A, %F - %H:%M')"
 bind C-t exec ratpoison -c "echo $(sensors | sed -n /Tctl/p | sed 's/Tctl:  *+/Temp: /')"
 
 # application keybinds
