@@ -6,7 +6,8 @@ URxvt.imLocale: ja_JP.utf8
 URxvt.imFont: xft:WenQuanYi Micro Hei Mono:size=12
 URxvt.inputMethod: ibus
 
-URxvt.*font: xft:Iosevka Term Custom:style=Regular:size=13:antialias=True,xft:JoyPixels:pixelsize=10
+URxvt.*font: xft:Iosevka Term Custom:style=Regular:size=11:antialias=True
+/*,xft:JoyPixels:pixelsize=10*/
 
 !! true transparency
 URxvt.depth: 32

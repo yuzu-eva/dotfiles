@@ -15,10 +15,12 @@ alias ea='$EDITOR ~/.config/shell/aliasrc'
 alias cam='mpv --profile=low-latency --untimed /dev/video0'
 alias df='df -h'
 alias tma='tmux a -t'
-alias tmn='tmux new-session -s'
+alias tmn='tmux new-session -A -s'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
+
+alias mvsave='rm Mizuki.ds2party.bak && mv Mizuki.ds2party Mizuki.ds2party.bak && mv Mizuki.ds2party.tmp Mizuki.ds2party'
 
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'

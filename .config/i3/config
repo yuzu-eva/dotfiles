@@ -10,6 +10,7 @@ font pango:Iosevka Term Custom 10
 
 for_window [class="Tk"] floating enable
 for_window [class="MVis"] floating enable
+for_window [title="Friends List"] floating enable
 
 # no_focus [all]
 # focus_on_window_activation none
