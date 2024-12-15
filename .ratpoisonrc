@@ -1,19 +1,10 @@
-# initialise dzen2
-#exec ratpoison -c "exec ~/.local/bin/dzen-bar-left" -c "exec ~/.local/bin/dzen-bar-right"
-
 set rudeness 15
-set startupmessage 0
-
-# this only works for my primary display
-# have to adjust secondary display manually
-#set padding 0 18 0 0
 
 # set info style
 set winname class
 set wingravity center
 set transgravity center
 set border 0
-set font "xft:Hack Nerd Font:size=11"
 set bgcolor #000000
 set fgcolor #c4c4c4
 
@@ -45,6 +36,21 @@ unbind p
 unbind C-p
 unbind n
 unbind C-n
+unbind f
+unbind C-f
+unbind m
+unbind C-m
+unbind l
+unbind C-l
+unbind c
+unbind C-c
+unbind exclam
+unbind C-exclam
+unbind Return
+unbind C-Return
+unbind N
+unbind P
+
 
 # switch between windows and monitors
 definekey top s-n next
@@ -74,18 +80,10 @@ bind M-4 restore-fs4
 bind M-percent store-fs5
 bind M-5 restore-fs5
 
-#bind b exec ratpoison -c "exec ~/.local/bin/dzen-bar-right" -c "set padding 0 18 0 0"
-#bind C-b exec pkill dzen-bar-right && ratpoison -c "set padding 0 0 0 0"
-#bind p exec ratpoison -c "set padding 0 0 0 0"
-#bind C-p exec ratpoison -c "set padding 0 18 0 0"
-
 # volume and media control
 definekey top XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 definekey top XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 definekey top XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-#definekey top XF86AudioPrev exec mpc prev && notify-send -r "$(cat ~/.config/mpd/notification-id)" "$(mpc status)"
-#definekey top XF86AudioNext exec mpc next && notify-send -r "$(cat ~/.config/mpd/notification-id)" "$(mpc status)"
-#definekey top XF86AudioPlay exec mpc toggle && notify-send -r "$(cat ~/.config/mpd/notification-id)" "$(mpc status)"
 definekey top XF86AudioPrev exec mpc prev && exec ratpoison -c "echo $(mpc status)"
 definekey top XF86AudioNext exec mpc next && exec ratpoison -c "echo $(mpc status)"
 definekey top XF86AudioPlay exec mpc toggle && exec ratpoison -c "echo $(mpc status)"
@@ -98,13 +96,12 @@ bind C-t exec ratpoison -c "echo $(sensors | sed -n /Tctl/p | sed 's/Tctl:  *+/T
 
 # application keybinds
 definekey top s-S-Return exec urxvtc
-definekey top s-F exec firefox -P default-release
-definekey top s-B exec firefox -P less-strict
-definekey top s-E exec emacsclient -c -a ""
-definekey top s-M exec notify-send -p "$(mpc status)" >~/.config/mpd/notification-id
-definekey top s-z exec boomer
-definekey top s-m exec mpdmenu
-definekey top s-p exec dmenu_run -m 0 -fn "xft:Hack Nerd Font:size=11" -nb "#222222" -nf "#bbbbbb" -sb "#005577" -sf "#eeeeee"
+definekey top s-b exec boomer
 definekey top s-Print exec scrot -s -e 'mv $f ~/pics/'
 definekey top Print exec scrot -u -e 'mv $f ~/pics/'
+bind C-f exec firefox -P default-release
+bind C-b exec firefox -P less-strict
+bind C-e exec emacsclient -c -a ""
+bind C-m exec mpdmenu
+bind C-p exec dmenu_run -m 0 -fn "xft:Hack Nerd Font:size=11" -nb "#222222" -nf "#bbbbbb" -sb "#005577" -sf "#eeeeee"
 
