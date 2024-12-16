@@ -96,9 +96,11 @@ bind C-t exec ratpoison -c "echo $(sensors | sed -n /Tctl/p | sed 's/Tctl:  *+/T
 
 # application keybinds
 definekey top s-S-Return exec urxvtc
-definekey top s-b exec boomer
+definekey top s-z exec boomer
 definekey top s-Print exec scrot -s -e 'mv $f ~/pics/'
 definekey top Print exec scrot -u -e 'mv $f ~/pics/'
+definekey top s-b exec bm -o
+definekey top s-B exec bm -y
 bind C-f exec firefox -P default-release
 bind C-b exec firefox -P less-strict
 bind C-e exec emacsclient -c -a ""

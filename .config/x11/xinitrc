@@ -28,5 +28,5 @@ ibus-daemon -d -r -x
 pipewire &
 mpd &
 
-#exec i3
-exec ratpoison
+exec i3
+#exec ratpoison
