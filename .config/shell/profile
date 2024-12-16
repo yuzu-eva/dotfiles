@@ -16,8 +16,6 @@ export NO_AT_BRIDGE=1
 export GTK_IM_MODULE='ibus'
 export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
-export XDG_SESSION_TYPE='x11'
-export XDG_CURRENT_DESKTOP='ratpoison'
 
 export VDPAU_DRIVER=radeonsi
 
