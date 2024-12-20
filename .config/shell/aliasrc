@@ -7,7 +7,7 @@ alias refresh='. ~/.bashrc'
 alias mutt='cd ~/.config/mutt/attachments; mutt; cd -'
 alias jpwine='LANG=ja_JP.UTF-8 WINEDEBUG=-all wine'
 alias emd='/usr/bin/emacs --daemon &'
-alias emc='emacsclient -c -a "emacs"'
+alias emc='/usr/bin/emacsclient -c -a ""'
 alias z='zathura'
 alias nnn='nnn -Hde'
 alias cl='clear;fastfetch'
@@ -19,8 +19,12 @@ alias tmn='tmux new-session -A -s'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
+<<<<<<< HEAD
 
 alias mvsave='rm Mizuki.ds2party.bak && mv Mizuki.ds2party Mizuki.ds2party.bak && mv Mizuki.ds2party.tmp Mizuki.ds2party'
+=======
+alias ska="ps -u $USER | awk 'NR > 1 { print $1 }' | xargs -t kill"
+>>>>>>> b1d6a43 (updated and removed some aliases)
 
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'
@@ -88,17 +92,6 @@ mkmp4() {
     ffmpeg -i "${1}" -c:v libx264 -crf 32 -c:a aac "${1%.*}.mp4"
 }
 
-## GIT
-
-# general shortcuts
-alias status='git status'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias upstream='git push --set-upstream'
-alias remote='git remote add'
-alias pull='git pull'
-alias push='git push'
-
 # shortcut for dotfiles repo
 alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'
@@ -109,4 +102,5 @@ alias xbin='sudo xbps-install -S'
 alias xbup='sudo xbps-install -Su'
 alias xbrm='sudo xbps-remove -R'
 alias xbqr='xbps-query -Rs'
+alias xbqi='xbps-query -RS'
 alias xbqm='xbps-query --list-manual-pkg'
