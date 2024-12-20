@@ -105,5 +105,5 @@ bind C-f exec firefox -P default-release
 bind C-b exec firefox -P less-strict
 bind C-e exec emacsclient -c -a ""
 bind C-m exec mpdmenu
-bind C-p exec dmenu_run -m 0 -fn "xft:Hack Nerd Font:size=11" -nb "#222222" -nf "#bbbbbb" -sb "#005577" -sf "#eeeeee"
+bind C-. exec dmenu_run -m 0 -fn "xft:Hack Nerd Font:size=11" -nb "#222222" -nf "#bbbbbb" -sb "#005577" -sf "#eeeeee"
 

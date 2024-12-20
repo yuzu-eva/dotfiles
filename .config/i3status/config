@@ -8,7 +8,7 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 2
 }
 
 order += "ethernet br0"
@@ -32,17 +32,16 @@ ethernet wg0 {
 }
 
 cpu_temperature 0 {
-    format = "temp: %degrees °C"
-    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input"
-#    path = "/sys/devices/pci0000:00/0000:00:03.1/0000:2d:00.0/0000:2e:00.0/0000:2f:00.0/hwmon/hwmon2/temp1_input"
+    format = "tea: %degrees °C"
+    path = "/sys/class/hwmon/hwmon2/temp1_input"
 }
 
 disk "/" {
-        format = "root: %used"
+        format = "porn: %used"
 }
 
 load {
-        format = "load: %1min"
+        format = "hot loads: %1min"
 }
 
 memory {
@@ -58,5 +57,5 @@ volume master {
 }
 
 tztime local {
-        format = "%A, %Y-%m-%d %H:%M "
+        format = "%A, %F %H:%M "
 }

@@ -10,8 +10,11 @@ URxvt.*font: xft:Iosevka Term Custom:style=Regular:size=11:antialias=True
 /*,xft:JoyPixels:pixelsize=10*/
 
 !! true transparency
-URxvt.depth: 32
-URxvt.background: [90]#000000
+!!URxvt.depth: 32
+!!URxvt.background: [90]#000000
+
+!! no transparency
+URxvt.background: #000000
 URxvt.foreground: #ffffff
 
 !! visuals and colors

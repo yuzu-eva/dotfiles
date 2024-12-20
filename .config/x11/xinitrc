@@ -20,4 +20,15 @@ xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
 xrdb -merge ~/.Xresources
 
-exec stumpwm
+~/.local/bin/set-wallpaper &
+/usr/bin/emacs --daemon &
+
+/usr/bin/urxvtd -q -o -f &
+/usr/bin/ibus-daemon -d -r -x
+/usr/bin/pipewire &
+/usr/bin/mpd &
+
+exec i3
+#exec fvwm
+#exec ratpoison
+#exec stumpwm
