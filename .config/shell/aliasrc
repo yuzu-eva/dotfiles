@@ -19,12 +19,7 @@ alias tmn='tmux new-session -A -s'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
-<<<<<<< HEAD
-
-alias mvsave='rm Mizuki.ds2party.bak && mv Mizuki.ds2party Mizuki.ds2party.bak && mv Mizuki.ds2party.tmp Mizuki.ds2party'
-=======
 alias ska="ps -u $USER | awk 'NR > 1 { print $1 }' | xargs -t kill"
->>>>>>> b1d6a43 (updated and removed some aliases)
 
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'
