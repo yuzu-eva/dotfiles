@@ -76,17 +76,6 @@ date-reverse() {
     done;
 }
 
-## CONVERTING VIDEO
-
-# convert video files to webm
-mkwebm() {
-    ffmpeg -i "${1}" -c:v libvpx-vp9 -crf 32 -c:a libvorbis "${1%.*}.webm"
-}
-
-mkmp4() {
-    ffmpeg -i "${1}" -c:v libx264 -crf 32 -c:a aac "${1%.*}.mp4"
-}
-
 # shortcut for dotfiles repo
 alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dcomm='dfiles commit -m'

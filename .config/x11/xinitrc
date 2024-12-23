@@ -13,8 +13,6 @@ xrandr --output DisplayPort-2 --mode 1920x1080 --left-of HDMI-A-0
 # xrandr --output DisplayPort-2 --mode 1920x1080 --primary
 # xrandr --output HDMI-A-0 --mode 1280x960 --left-of DisplayPort-2
 
-rfkill block bluetooth
-
 xset r rate 250 30
 xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
