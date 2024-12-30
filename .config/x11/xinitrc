@@ -4,8 +4,8 @@
 #	eval $(dbus-launch --sh-syntax --exit-with-session)
 #fi
 
-pgrep -x gpg-agent >/dev/null || eval "$(gpg-agent --daemon --allow-preset-passphrase)"
-pgrep -x ssh-agent >/dev/null || eval "$(ssh-agent)"
+eval "$(gpg-agent --daemon --allow-preset-passphrase)"
+eval "$(ssh-agent)"
 
 xrandr --addmode HDMI-A-0 1280x960
 xrandr --output HDMI-A-0 --mode 1280x960 --primary
