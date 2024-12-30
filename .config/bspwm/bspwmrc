@@ -1,0 +1,22 @@
+#!/bin/bash
+
+pgrep -x sxhkd >/dev/null || sxhkd -m -1 &
+
+PRIMARY_MON="HDMI-A-0"
+SECONDARY_MON="DisplayPort-2"
+
+bspc monitor $PRIMARY_MON -d 1
+bspc monitor $SECONDARY_MON -d 2
+
+bspc config border_width         1
+bspc config window_gap           1
+bspc config top_padding         14
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+$HOME/.local/bin/polybar-launch
+
+bspc rule -a mpdinfo state=floating
+bspc rule -a Screenkey manage=off

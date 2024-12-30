@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
 #	eval $(dbus-launch --sh-syntax --exit-with-session)
 #fi
 
-eval "$(gpg-agent --daemon --allow-preset-passphrase)"
-eval "$(ssh-agent)"
+pgrep -x gpg-agent >/dev/null || eval "$(gpg-agent --daemon --allow-preset-passphrase)"
+pgrep -x ssh-agent >/dev/null || eval "$(ssh-agent)"
 
 xrandr --addmode HDMI-A-0 1280x960
 xrandr --output HDMI-A-0 --mode 1280x960 --primary
@@ -18,15 +18,10 @@ xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
 xrdb -merge ~/.Xresources
 
-~/.local/bin/set-wallpaper &
-/usr/bin/emacs --daemon &
+pgrep -x emacs >/dev/null || /usr/bin/emacs --daemon &
+pgrep -x urxvtd >/dev/null || /usr/bin/urxvtd -q -o -f &
+pgrep -x pipewire >/dev/null || /usr/bin/pipewire &
+pgrep -x mpd >/dev/null || /usr/bin/mpd &
+$HOME/.local/bin/set-wallpaper &
 
-/usr/bin/urxvtd -q -o -f &
-/usr/bin/ibus-daemon -d -r -x
-/usr/bin/pipewire &
-/usr/bin/mpd &
-
-exec i3
-#exec fvwm
-#exec ratpoison
-#exec stumpwm
+exec bspwm
