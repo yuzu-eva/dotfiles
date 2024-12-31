@@ -28,5 +28,4 @@ export MANPATH="$MANPATH:/usr/local/man"
 export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/src/fzf/bin:$HOME/.npm/bin:/sbin:/usr/sbin:$GOPATH/bin"
 
-# Get the bashrc
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc

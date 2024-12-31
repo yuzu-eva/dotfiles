@@ -18,11 +18,12 @@ xset s off -dpms
 setxkbmap -option "ctrl:nocaps"
 xrdb -merge ~/.Xresources
 
-/usr/bin/ibus-daemon -d -r -x
-pgrep -x emacs >/dev/null || /usr/bin/emacs --daemon &
 pgrep -x urxvtd >/dev/null || /usr/bin/urxvtd -q -o -f &
+/usr/bin/ibus-daemon -d -r -x
+/usr/bin/emacs --daemon &
 /usr/bin/pipewire &
 /usr/bin/mpd &
 $HOME/.local/bin/set-wallpaper &
 
-exec ratpoison
+# exec ratpoison
+exec herbstluftwm --locked
