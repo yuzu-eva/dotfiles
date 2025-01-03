@@ -27,7 +27,7 @@ hc keybind $Mod-z spawn boomer
 hc keybind $Mod-m spawn mpdmenu
 hc keybind $Mod-p spawn dmenu_run -m 0 -fn "xft:Hack Nerd Font:size=11" -nb "#222222" -nf "#bbbbbb" -sb "#005577" -sf "#eeeeee"
 hc keybind XF86AudioRaiseVolume spawn wpctl set-volume @DEFAULT_SINK@ 5%+
-hc keybind XF86AudioLowerVolume spawn wpctl set-volume #DEFAULT_SINK@ 5%-
+hc keybind XF86AudioLowerVolume spawn wpctl set-volume @DEFAULT_SINK@ 5%-
 hc keybind XF86AudioMute spawn wpctl set-mute @DEFAULT_SINK@ toggle
 hc keybind XF86AudioPrev spawn mpc prev
 hc keybind XF86AudioNext spawn mpc next
@@ -178,6 +178,7 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
 hc rule class='mpdinfo' floating=on
+hc rule class='lyrics' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
