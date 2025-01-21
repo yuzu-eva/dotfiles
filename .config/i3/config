@@ -8,7 +8,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Iosevka Term Custom 10
 
-for_window [class="floating"] floating enable
+for_window [class="mpdinfo"] floating enable
+for_window [class="lyrics"] floating enable
+for_window [class="Pcmanfm"] floating enable
 for_window [class="Tk"] floating enable
 for_window [class="MVis"] floating enable
 for_window [title="Friends List"] floating enable
