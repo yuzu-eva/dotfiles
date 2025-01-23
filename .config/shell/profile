@@ -19,6 +19,9 @@ export XMODIFIERS='@im=ibus'
 
 export VDPAU_DRIVER=radeonsi
 
+export EIX_LIMIT=0
+export EIX_LIMIT_COMPACT=0
+
 export LC_ALL=en_US.utf8
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64"

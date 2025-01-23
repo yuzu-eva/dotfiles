@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
-#	eval $(dbus-launch --sh-syntax --exit-with-session)
-#fi
+if command -v dbus-launch > /dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
+	eval $(dbus-launch --sh-syntax --exit-with-session)
+fi
 
 eval "$(gpg-agent --daemon --allow-preset-passphrase)"
 eval "$(ssh-agent)"

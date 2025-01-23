@@ -37,9 +37,9 @@ alias setkeys='xset r rate 250 30 && setxkbmap -layout us,us -variant dvorak, -o
 alias padz='perl-rename "s/\d+/sprintf(\"%02d\",$&)/e"'
 
 # cp mv and rm always verbose
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -Iv'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v'
 
 # colorize grep output
 alias grep='grep --color=auto -i'
@@ -82,9 +82,21 @@ alias dcomm='dfiles commit -m'
 alias dpush='dfiles push'
 
 # package management
-alias xbin='sudo xbps-install -S'
-alias xbup='sudo xbps-install -Su'
-alias xbrm='sudo xbps-remove -R'
-alias xbqr='xbps-query --regex -Rs'
-alias xbqi='xbps-query -RS'
-alias xbqm='xbps-query --list-manual-pkg'
+alias qu='equery u'
+alias qd='equery d'
+alias qg='equery g'
+alias qf='equery f'
+alias qb='equery b'
+alias qy='equery y'
+
+alias eli='eix -c --installed'
+alias els='eix -c --selected'
+
+alias esync='sudo emaint sync'
+alias pemup='emerge -pvuND @world'
+alias emup='sudo emerge -vuND @world'
+alias pemin='emerge -pv'
+alias emin='sudo emerge -v'
+alias pemrm='emerge -pvc'
+alias emrm='sudo emerge -vc'
+alias emsr='emerge -s' 
