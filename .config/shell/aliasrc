@@ -19,13 +19,14 @@ alias tmn='tmux new-session -A -s'
 alias wgu='sudo wg-quick up /etc/wireguard/wg0.conf'
 alias wgd='sudo wg-quick down /etc/wireguard/wg0.conf'
 alias zzz='sudo zzz'
+alias sc='echo -ne "\e[1 q"'
 alias ska="ps -u $USER | awk 'NR > 1 { print $1 }' | xargs -t kill"
 
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'
 
 # rename files in cwd in their current order to 4-digit numbers
-alias ofn='/bin/ls | cat -n | while read n f; do rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
+alias ofn='/bin/ls | cat -n | while read n f; do perl-rename "s/${f%.*}/$(printf "%04d" "$n")/" "$f"; done'
 
 # restart pipewire after suspend if it stops working
 alias pw-restart='pkill pipewire && sleep 3s && setsid pipewire &>/dev/null'

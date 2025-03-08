@@ -24,6 +24,8 @@ export EIX_LIMIT_COMPACT=0
 
 export LC_ALL=en_US.utf8
 
+export UV_CACHE_DIR="$HOME/.local/share/uv/cache"
+
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig"
 export INFOPATH="$INFOPATH:/usr/local/share/info"
@@ -32,3 +34,5 @@ export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/src/fzf/bin:$HOME/.npm/bin:/sbin:/usr/sbin:$GOPATH/bin"
 
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
+
+[[ -f /etc/motd.tcl ]] && /etc/motd.tcl

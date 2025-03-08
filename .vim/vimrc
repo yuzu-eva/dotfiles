@@ -66,13 +66,10 @@ nmap <leader>Q :bufdo bdelete<CR>
 nmap <leader>ve :edit $MYVIMRC<CR>
 nmap <leader>vr :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 
-nnoremap <leader>m :MaximizerToggle!<CR>
-nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
-
-vnoremap <c-c> "+y
-nnoremap <c-v> "+p
 
 map gf :edit <cfile><CR>
 
 nmap <leader>x :!xdg-open %<CR><CR>
+
+nmap <leader>s :!echo -ne "\e[2 q"<CR><CR>

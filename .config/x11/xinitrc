@@ -9,7 +9,7 @@ eval "$(ssh-agent)"
 
 xrandr --addmode HDMI-A-0 1280x960
 xrandr --output HDMI-A-0 --mode 1280x960 --primary
-xrandr --output DisplayPort-2 --mode 1920x1080 --left-of HDMI-A-0
+xrandr --output DisplayPort-1 --mode 1920x1080 --left-of HDMI-A-0
 # xrandr --output DisplayPort-2 --mode 1920x1080 --primary
 # xrandr --output HDMI-A-0 --mode 1280x960 --left-of DisplayPort-2
 
@@ -24,5 +24,6 @@ xrdb -merge ~/.Xresources
 /usr/bin/pipewire &
 /usr/bin/mpd &
 $HOME/.local/bin/set-wallpaper &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
 
 exec i3

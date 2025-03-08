@@ -18,7 +18,7 @@ for_window [title="Friends List"] floating enable
 # no_focus [all]
 # focus_on_window_activation none
 
-# focus_follows_mouse no
+focus_follows_mouse yes
 
 # Use wpctl to adjust volume in Pipewire.
 set $refresh_i3status killall -SIGUSR1 i3status
