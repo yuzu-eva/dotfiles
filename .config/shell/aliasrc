@@ -50,7 +50,8 @@ alias egrep='egrep --color=auto -i'
 # ls shortcuts
 alias ls='ls --color=always --group-directories-first'
 alias ll='ls -lh'
-alias la='ll -A'
+alias la='ls -A'
+alias lla='ll -A'
 alias lc='ls | wc -l'
 
 # control audio

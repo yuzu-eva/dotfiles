@@ -22,6 +22,7 @@ call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -67,6 +68,9 @@ nmap <leader>ve :edit $MYVIMRC<CR>
 nmap <leader>vr :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 
 nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <leader><C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 
 map gf :edit <cfile><CR>
 
