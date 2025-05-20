@@ -15,7 +15,7 @@ playlist_show_remaining_time = yes
 browser_display_mode = columns
 autocenter_mode = yes
 follow_now_playing_lyrics = yes
-lyrics_fetchers = genius, tekstowo, plyrics, justsomelyrics, jahlyrics, zeneszoveg, internet
+lyrics_fetchers = tekstowo, plyrics, justsomelyrics, jahlyrics, zeneszoveg, genius, internet
 
 # UI and colors
 external_editor = nano

@@ -19,6 +19,14 @@ for_window [title="Friends List"] floating enable
 # focus_on_window_activation none
 
 focus_follows_mouse yes
+# control mouse with keyboard
+bindsym Mod1+Control+g exec --no-startup-id xdotool click --clearmodifiers 1
+bindsym Mod1+Control+r exec --no-startup-id xdotool click --clearmodifiers 3
+bindsym Mod1+Control+t exec --no-startup-id xdotool mousemove_relative -- 0 20
+bindsym Mod1+Control+c exec --no-startup-id xdotool mousemove_relative -- 0 -20
+bindsym Mod1+Control+h exec --no-startup-id xdotool mousemove_relative -- -20 0 
+bindsym Mod1+Control+n exec --no-startup-id xdotool mousemove_relative -- 20 0
+bindsym Mod1+Control+z exec --no-startup-id xdotool mousemove 3200 2104
 
 # Use wpctl to adjust volume in Pipewire.
 set $refresh_i3status killall -SIGUSR1 i3status

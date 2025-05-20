@@ -37,4 +37,4 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.local/src/fzf/bin:$HOME/.npm/bin:/sbi
 
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
-[ -f /etc/motd ] && /etc/motd
+[ -f /etc/motd.tcl ] && /etc/motd.tcl
