@@ -14,11 +14,11 @@ URxvt.*font: xft:Iosevka Term Custom:style=Regular:size=11:antialias=True,xft:Jo
 
 !! no transparency
 ! light
-URxvt.background: #eeeeee
-URxvt.foreground: #444444
+! URxvt.background: #eeeeee
+! URxvt.foreground: #444444
 ! dark
-! URxvt.background: #000000
-! URxvt.foreground: #FFFFFF
+URxvt.background: #000000
+URxvt.foreground: #FFFFFF
 
 !! visuals and colors
 /* URxvt.letterSpace: 0 */
@@ -29,56 +29,56 @@ URxvt.internalBorder: 0
 URxvt.backgroundBorder: 0
 URxvt.borderLess: False
 !! colors for dracula theme
-! !! black
-! URxvt.color0: #000000
-! URxvt.color8: #343636
-! !! red
-! URxvt.color1: #e74c7c
-! URxvt.color9: #c26f6f
-! !! green
-! URxvt.color2: #6bb05d
-! URxvt.color10: #8dc776
-! !! yellow
-! URxvt.color3: #e59e67
-! URxvt.color11: #e7ac7e
-! !! indigo
-! URxvt.color4: #5b98a9
-! URxvt.color12: #7ab3c3
-! !! lavender
-! URxvt.color5: #b185db
-! URxvt.color13: #bb84e5
-! !! cyan
-! URxvt.color6: #51a39f
-! URxvt.color14: #6db0ad
-! !! white
-! URxvt.color7: #c4c4c4
-! URxvt.color15: #cccccc
+!! black
+URxvt.color0: #000000
+URxvt.color8: #343636
+!! red
+URxvt.color1: #e74c7c
+URxvt.color9: #c26f6f
+!! green
+URxvt.color2: #6bb05d
+URxvt.color10: #8dc776
+!! yellow
+URxvt.color3: #e59e67
+URxvt.color11: #e7ac7e
+!! indigo
+URxvt.color4: #5b98a9
+URxvt.color12: #7ab3c3
+!! lavender
+URxvt.color5: #b185db
+URxvt.color13: #bb84e5
+!! cyan
+URxvt.color6: #51a39f
+URxvt.color14: #6db0ad
+!! white
+URxvt.color7: #c4c4c4
+URxvt.color15: #cccccc
 
 !! colors for papercolor-theme
-!! white
-URxvt.color0: #eeeeee
-URxvt.color8: #bcbcbc
-!! red
-URxvt.color1: #af0000
-URxvt.color9: #d70000
-!! dark green and magenta
-URxvt.color2: #008700
-URxvt.color10: #d70087
-!! murky green and purple
-URxvt.color3: #5f8700
-URxvt.color11: #8700af
-!! jeans blue and orange
-URxvt.color4: #0087af
-URxvt.color12: #d75f00
-!! gray and orange
-URxvt.color5: #878787
-URxvt.color13: #d75f00
-!! ocean blue
-URxvt.color6: #005f87
-URxvt.color14: #005faf
-!! dark gray and ocean blue
-URxvt.color7: #444444
-URxvt.color15: #005f87
+! !! white and very light gray
+! URxvt.color0: #eeeeee
+! URxvt.color8: #bcbcbc
+! !! red
+! URxvt.color1: #af0000
+! URxvt.color9: #d70000
+! !! dark green and magenta
+! URxvt.color2: #008700
+! URxvt.color10: #d70087
+! !! murky green and purple
+! URxvt.color3: #5f8700
+! URxvt.color11: #8700af
+! !! jeans blue and orange
+! URxvt.color4: #0087af
+! URxvt.color12: #d75f00
+! !! gray and orange
+! URxvt.color5: #878787
+! URxvt.color13: #d75f00
+! !! ocean blue
+! URxvt.color6: #005f87
+! URxvt.color14: #005faf
+! !! dark gray and ocean blue
+! URxvt.color7: #444444
+! URxvt.color15: #005f87
 
 !! perl extensions
 URxvt.perl-ext-common: default,url-select,resize-font,selection-to-clipboard,-confirm-paste
