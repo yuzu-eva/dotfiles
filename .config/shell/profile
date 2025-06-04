@@ -3,6 +3,7 @@ export EDITOR="vim"
 export SUDO_EDITOR="nano"
 export TERMINAL="urxvt"
 export BROWSER="firefox"
+export LESS="-F -X $LESS"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"

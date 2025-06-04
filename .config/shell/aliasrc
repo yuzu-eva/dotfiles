@@ -22,6 +22,8 @@ alias zzz='sudo zzz'
 alias sc='echo -ne "\e[1 q"'
 alias ska="ps -u $USER | awk 'NR > 1 { print $1 }' | xargs -t kill"
 
+alias alert='pw-play /usr/share/sounds/freedesktop/stereo/complete.oga >/dev/null'
+
 # compiler
 alias clang='clang -march=native -O3 -flto=thin'
 
@@ -59,24 +61,6 @@ alias headset='wpctl set-default "$(wpctl status | grep Headphones | cut -b11-12
 alias speakers='wpctl set-default "$(wpctl status | grep Speakers | cut -b11-12)"'
 alias getvol='wpctl get-volume @DEFAULT_SINK@'
 alias setvol='wpctl set-volume @DEFAULT_SINK@'
-
-## FUNCTIONS FOR CONVERTING DATES
-
-# convert date from YYYYMMDD to YYYY-MM-DD
-date-convert() {
-    for i in *; do
-        /bin/mv "${i}" "$(echo "${i}" |
-        sed 's/\([0-9][0-9][0-9][0-9]\)\([0-9][0-9]\)\([0-9][0-9]\)/\1-\2-\3/')"
-    done;
-}
-
-# reverse date from DD-MM-YYYY to YYYY-MM-DD
-date-reverse() {
-    for i in *; do
-        /bin/mv "${i}" "$(echo "${i}" |
-        sed 's/\([0-9][0-9]\)-\([0-9][0-9]\)-\([0-9][0-9][0-9][0-9]\)/\3-\1-\2/')"
-    done;
-}
 
 # shortcut for dotfiles repo
 alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
