@@ -11,7 +11,7 @@ eval "$(ssh-agent)"
 # xrandr --output HDMI-A-0 --mode 1280x1024 --primary
 # xrandr --output DisplayPort-1 --mode 1920x1080 --left-of HDMI-A-0
 xrandr --output DisplayPort-1 --mode 1920x1080 --primary
-xrandr --output HDMI-A-0 --mode 1280x1024 --left-of DisplayPort-1
+xrandr --output HDMI-A-0 --mode 1280x960 --left-of DisplayPort-1
 
 xset r rate 250 30
 xset s off -dpms

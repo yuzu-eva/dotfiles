@@ -1,6 +1,11 @@
-filetype plugin indent on
 syntax enable
+filetype plugin on
+
 set nocompatible
+
+set path+=**
+set wildmenu
+
 set modeline
 set modelines=5
 set nobackup
@@ -20,7 +25,6 @@ let $RC="$HOME/.vim/vimrc"
 call plug#begin()
 
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
